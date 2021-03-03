@@ -39,6 +39,9 @@ class ErrorAlertView: UIView  {
         
         if let error = error as? IError, let message = error.message{
             title = message
+            if error.code == .networkError {
+                title = "网络崩溃了，请稍后再试"
+            }
         }
         
         guard let window = UIApplication.shared.windows.first else {return}

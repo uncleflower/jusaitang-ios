@@ -45,7 +45,7 @@ class NavigationView: UIView {
     
     lazy var titleLabel : UILabel = {
         let title =  UILabel()
-        title.textColor = .black
+        title.textColor = UIColor(hexString: "#333333")
         title.font = UIFont.pf_medium(18)
         title.textAlignment = .center
         return title

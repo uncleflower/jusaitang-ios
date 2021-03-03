@@ -14,8 +14,13 @@ enum IErrorType:Int {
     
     case networkError = -20 // 网络错误
     case paramsError = -22 // 参数错误
+    
+    case sidEmpty           = 1016 //学号为空
 
-    case GuardNotExist = 10002 // 用户不存在
+    case userNotExist = 10001 // 用户不存在
+    case userPWDError       = 10002 // 用户密码错误
+    case userNotLogin       = 10003 // 用户未登录
+    case userOldPwdError    = 10007 // 用户旧密码错误
 
     case noLocation       = 3001 // 没有定位
 
@@ -23,8 +28,6 @@ enum IErrorType:Int {
 
     case phoneFormatTooShort       = 1001 // 手机号太短
     case phoneFormatWrong          = 1002 // 手机号错误
-    case phoneAlreadyBind          = 10003 // 手机号已绑定
-    case phoneNotMatch             = 10019 // 手机号与当前登录用户不匹配
     
     case pwdEnpty           = 1003 //密码为空
     case userRepeatPWDError = 1004 // 俩次密码不一致
@@ -32,9 +35,7 @@ enum IErrorType:Int {
     
     case nicknameTooLong    = 1014 //用户名过长
     case nicknameEmpty      = 1015 //用户名为空
-
-    case userPWDError       = 10001 // 用户密码错误
-    case userOldPwdError    = 10007 // 用户旧密码错误
+    
 
     case userTokenError     = 10999 // 用户授权Token为空
     case tokenOverdue       = 10008 //用户授权Token过期

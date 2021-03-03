@@ -19,9 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = window
         window.backgroundColor = .white
         window.makeKeyAndVisible()
-        
-        self.window?.rootViewController = UINavigationController.init(rootViewController: ViewController())
+                
+        if DataManager.shared.loggedIn {
+            self.window?.rootViewController = UINavigationController.init(rootViewController: TabBarViewController())
+            return true
+        }
+//        self.window?.rootViewController = UINavigationController.init(rootViewController: TabBarViewController())
+        self.window?.rootViewController = UINavigationController.init(rootViewController: LoginWithPswVC())
         return true
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
     }
 
 }

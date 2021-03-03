@@ -11,7 +11,7 @@ import UIKit
 extension UIColor{
     static var `default`:UIColor{
         get{
-            return UIColor(red: 0.34, green: 0.8, blue: 0.75, alpha: 1)
+            return UIColor(hexString: "#ff7200")!
         }
     }
     

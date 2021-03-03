@@ -3,13 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		20B497B92BB8BD2E43017F62 /* Pods_jusaitang_jusaitangUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0417A2C59FD6A650F65385 /* Pods_jusaitang_jusaitangUITests.framework */; };
+		40163E5925EE096C005ABBBC /* LoginWithPswVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40163E5825EE096C005ABBBC /* LoginWithPswVM.swift */; };
+		40163E6125EE10C7005ABBBC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40163E6025EE10C7005ABBBC /* User.swift */; };
+		40163E6925EE1246005ABBBC /* College.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40163E6825EE1246005ABBBC /* College.swift */; };
+		40163E6E25EE1278005ABBBC /* University.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40163E6D25EE1278005ABBBC /* University.swift */; };
+		40163E8825EE2272005ABBBC /* OrganizeTeamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40163E8725EE2272005ABBBC /* OrganizeTeamVC.swift */; };
+		40163E8D25EE2283005ABBBC /* CompetitionCenterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40163E8C25EE2283005ABBBC /* CompetitionCenterVC.swift */; };
+		40163E9825EE230A005ABBBC /* UserCenterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40163E9725EE230A005ABBBC /* UserCenterVC.swift */; };
 		402C433125D37D78004E7951 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402C433025D37D78004E7951 /* AppDelegate.swift */; };
-		402C433525D37D78004E7951 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402C433425D37D78004E7951 /* ViewController.swift */; };
+		402C433525D37D78004E7951 /* LoginWithPswVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402C433425D37D78004E7951 /* LoginWithPswVC.swift */; };
 		402C433A25D37D7D004E7951 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 402C433925D37D7D004E7951 /* Assets.xcassets */; };
 		402C433D25D37D7D004E7951 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 402C433B25D37D7D004E7951 /* LaunchScreen.storyboard */; };
 		402C434825D37D7D004E7951 /* jusaitangTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402C434725D37D7D004E7951 /* jusaitangTests.swift */; };
@@ -120,6 +127,10 @@
 		402C449625D381F6004E7951 /* JXPagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402C444825D381F6004E7951 /* JXPagingView.swift */; };
 		402C449725D381F6004E7951 /* JXPagingListRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402C444925D381F6004E7951 /* JXPagingListRefreshView.swift */; };
 		402C449825D381F6004E7951 /* JXPagingListContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402C444A25D381F6004E7951 /* JXPagingListContainerView.swift */; };
+		4092170925EB993800A8A78E /* InputBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4092170825EB993800A8A78E /* InputBackgroundView.swift */; };
+		4092171125EB99D100A8A78E /* ClickableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4092171025EB99D100A8A78E /* ClickableTextView.swift */; };
+		40B69B2525DA86BC000E5631 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B69B2425DA86BC000E5631 /* LoginAPI.swift */; };
+		40B69B3225DA8FE2000E5631 /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B69B3125DA8FE2000E5631 /* UIDeviceExtension.swift */; };
 		B06FA35777FF02347CF18AF7 /* Pods_jusaitangTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C50735F77C01DC2A9133C534 /* Pods_jusaitangTests.framework */; };
 		E157941CC81A62F8E91E8E47 /* Pods_jusaitang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194005AE20A4220592DD449B /* Pods_jusaitang.framework */; };
 /* End PBXBuildFile section */
@@ -144,9 +155,16 @@
 /* Begin PBXFileReference section */
 		1404B00C887F885C24256845 /* Pods-jusaitang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jusaitang.debug.xcconfig"; path = "Target Support Files/Pods-jusaitang/Pods-jusaitang.debug.xcconfig"; sourceTree = "<group>"; };
 		194005AE20A4220592DD449B /* Pods_jusaitang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jusaitang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		40163E5825EE096C005ABBBC /* LoginWithPswVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithPswVM.swift; sourceTree = "<group>"; };
+		40163E6025EE10C7005ABBBC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		40163E6825EE1246005ABBBC /* College.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = College.swift; sourceTree = "<group>"; };
+		40163E6D25EE1278005ABBBC /* University.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = University.swift; sourceTree = "<group>"; };
+		40163E8725EE2272005ABBBC /* OrganizeTeamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizeTeamVC.swift; sourceTree = "<group>"; };
+		40163E8C25EE2283005ABBBC /* CompetitionCenterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionCenterVC.swift; sourceTree = "<group>"; };
+		40163E9725EE230A005ABBBC /* UserCenterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCenterVC.swift; sourceTree = "<group>"; };
 		402C432D25D37D78004E7951 /* jusaitang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jusaitang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		402C433025D37D78004E7951 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		402C433425D37D78004E7951 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		402C433425D37D78004E7951 /* LoginWithPswVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithPswVC.swift; sourceTree = "<group>"; };
 		402C433925D37D7D004E7951 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		402C433C25D37D7D004E7951 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		402C433E25D37D7D004E7951 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -262,6 +280,10 @@
 		402C444825D381F6004E7951 /* JXPagingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPagingView.swift; sourceTree = "<group>"; };
 		402C444925D381F6004E7951 /* JXPagingListRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPagingListRefreshView.swift; sourceTree = "<group>"; };
 		402C444A25D381F6004E7951 /* JXPagingListContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPagingListContainerView.swift; sourceTree = "<group>"; };
+		4092170825EB993800A8A78E /* InputBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputBackgroundView.swift; sourceTree = "<group>"; };
+		4092171025EB99D100A8A78E /* ClickableTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickableTextView.swift; sourceTree = "<group>"; };
+		40B69B2425DA86BC000E5631 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
+		40B69B3125DA8FE2000E5631 /* UIDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
 		65462F3E9DFDAB6B60AF26A7 /* Pods-jusaitang-jusaitangUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jusaitang-jusaitangUITests.debug.xcconfig"; path = "Target Support Files/Pods-jusaitang-jusaitangUITests/Pods-jusaitang-jusaitangUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		67247753BFE61206F9F98256 /* Pods-jusaitang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jusaitang.release.xcconfig"; path = "Target Support Files/Pods-jusaitang/Pods-jusaitang.release.xcconfig"; sourceTree = "<group>"; };
 		69D4AFD3FAD3A39AB87D933E /* Pods-jusaitangTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jusaitangTests.release.xcconfig"; path = "Target Support Files/Pods-jusaitangTests/Pods-jusaitangTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -299,6 +321,199 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		40163E5325EE0906005ABBBC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				40163E7325EE21CD005ABBBC /* LoginWithPwd */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		40163E5425EE091F005ABBBC /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		40163E5525EE0925005ABBBC /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		40163E5625EE0929005ABBBC /* viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				40163E5825EE096C005ABBBC /* LoginWithPswVM.swift */,
+			);
+			path = viewmodel;
+			sourceTree = "<group>";
+		};
+		40163E5725EE0931005ABBBC /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				402C433425D37D78004E7951 /* LoginWithPswVC.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		40163E7225EE21A1005ABBBC /* Competition */ = {
+			isa = PBXGroup;
+			children = (
+				40163E7425EE21DC005ABBBC /* CompetitionCenter */,
+			);
+			path = Competition;
+			sourceTree = "<group>";
+		};
+		40163E7325EE21CD005ABBBC /* LoginWithPwd */ = {
+			isa = PBXGroup;
+			children = (
+				40163E5725EE0931005ABBBC /* controller */,
+				40163E5625EE0929005ABBBC /* viewmodel */,
+				40163E5525EE0925005ABBBC /* view */,
+				40163E5425EE091F005ABBBC /* model */,
+			);
+			path = LoginWithPwd;
+			sourceTree = "<group>";
+		};
+		40163E7425EE21DC005ABBBC /* CompetitionCenter */ = {
+			isa = PBXGroup;
+			children = (
+				40163E7E25EE2244005ABBBC /* controller */,
+				40163E7D25EE223E005ABBBC /* viewmodel */,
+				40163E7C25EE223A005ABBBC /* view */,
+				40163E7B25EE2236005ABBBC /* model */,
+			);
+			path = CompetitionCenter;
+			sourceTree = "<group>";
+		};
+		40163E7525EE21E7005ABBBC /* Team */ = {
+			isa = PBXGroup;
+			children = (
+				40163E7625EE2213005ABBBC /* OrganizeTeam */,
+			);
+			path = Team;
+			sourceTree = "<group>";
+		};
+		40163E7625EE2213005ABBBC /* OrganizeTeam */ = {
+			isa = PBXGroup;
+			children = (
+				40163E7A25EE2231005ABBBC /* controller */,
+				40163E7925EE222C005ABBBC /* viewmodel */,
+				40163E7825EE2226005ABBBC /* view */,
+				40163E7725EE2222005ABBBC /* model */,
+			);
+			path = OrganizeTeam;
+			sourceTree = "<group>";
+		};
+		40163E7725EE2222005ABBBC /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		40163E7825EE2226005ABBBC /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		40163E7925EE222C005ABBBC /* viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = viewmodel;
+			sourceTree = "<group>";
+		};
+		40163E7A25EE2231005ABBBC /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				40163E8725EE2272005ABBBC /* OrganizeTeamVC.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		40163E7B25EE2236005ABBBC /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		40163E7C25EE223A005ABBBC /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		40163E7D25EE223E005ABBBC /* viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = viewmodel;
+			sourceTree = "<group>";
+		};
+		40163E7E25EE2244005ABBBC /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				40163E8C25EE2283005ABBBC /* CompetitionCenterVC.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		40163E9125EE22AB005ABBBC /* User */ = {
+			isa = PBXGroup;
+			children = (
+				40163E9225EE22B7005ABBBC /* UserCenter */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		40163E9225EE22B7005ABBBC /* UserCenter */ = {
+			isa = PBXGroup;
+			children = (
+				40163E9625EE22D7005ABBBC /* controller */,
+				40163E9525EE22D1005ABBBC /* viewmodel */,
+				40163E9425EE22CC005ABBBC /* view */,
+				40163E9325EE22C8005ABBBC /* model */,
+			);
+			path = UserCenter;
+			sourceTree = "<group>";
+		};
+		40163E9325EE22C8005ABBBC /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		40163E9425EE22CC005ABBBC /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		40163E9525EE22D1005ABBBC /* viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = viewmodel;
+			sourceTree = "<group>";
+		};
+		40163E9625EE22D7005ABBBC /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				40163E9725EE230A005ABBBC /* UserCenterVC.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
 		402C432425D37D78004E7951 = {
 			isa = PBXGroup;
 			children = (
@@ -328,10 +543,9 @@
 				402C43EF25D381F5004E7951 /* extension */,
 				402C43FC25D381F6004E7951 /* library */,
 				402C433025D37D78004E7951 /* AppDelegate.swift */,
-				402C433425D37D78004E7951 /* ViewController.swift */,
 				402C433925D37D7D004E7951 /* Assets.xcassets */,
-				402C433B25D37D7D004E7951 /* LaunchScreen.storyboard */,
 				402C433E25D37D7D004E7951 /* Info.plist */,
+				402C433B25D37D7D004E7951 /* LaunchScreen.storyboard */,
 			);
 			path = jusaitang;
 			sourceTree = "<group>";
@@ -404,6 +618,9 @@
 		402C439E25D381DE004E7951 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				40163E6025EE10C7005ABBBC /* User.swift */,
+				40163E6825EE1246005ABBBC /* College.swift */,
+				40163E6D25EE1278005ABBBC /* University.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -411,6 +628,7 @@
 		402C439F25D381DE004E7951 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				4092170725EB992300A8A78E /* InputBackgroundView */,
 				402C43A025D381DE004E7951 /* StarEvaluationView */,
 				402C43A225D381DE004E7951 /* InputPhoneTextField */,
 				402C43A425D381DE004E7951 /* MapView */,
@@ -474,6 +692,7 @@
 		402C43AF25D381DE004E7951 /* api */ = {
 			isa = PBXGroup;
 			children = (
+				40B69B2425DA86BC000E5631 /* LoginAPI.swift */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -481,6 +700,10 @@
 		402C43B025D381DE004E7951 /* modules */ = {
 			isa = PBXGroup;
 			children = (
+				40163E9125EE22AB005ABBBC /* User */,
+				40163E7525EE21E7005ABBBC /* Team */,
+				40163E7225EE21A1005ABBBC /* Competition */,
+				40163E5325EE0906005ABBBC /* Login */,
 			);
 			path = modules;
 			sourceTree = "<group>";
@@ -559,6 +782,7 @@
 				402C43C325D381DE004E7951 /* AlertView */,
 				402C43C625D381DE004E7951 /* ActivityIndicatorView.swift */,
 				402C43C725D381DE004E7951 /* BaseView.swift */,
+				4092171025EB99D100A8A78E /* ClickableTextView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -628,6 +852,7 @@
 				402C43F925D381F5004E7951 /* DictionaryExtension.swift */,
 				402C43FA25D381F5004E7951 /* UIImageExtension.swift */,
 				402C43FB25D381F5004E7951 /* DateExtension.swift */,
+				40B69B3125DA8FE2000E5631 /* UIDeviceExtension.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -801,6 +1026,14 @@
 			path = JXPagingView;
 			sourceTree = "<group>";
 		};
+		4092170725EB992300A8A78E /* InputBackgroundView */ = {
+			isa = PBXGroup;
+			children = (
+				4092170825EB993800A8A78E /* InputBackgroundView.swift */,
+			);
+			path = InputBackgroundView;
+			sourceTree = "<group>";
+		};
 		45D9455A9AA8FC6BBC7685B3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -811,7 +1044,6 @@
 				F36E7CBC88BAFEE51B480389 /* Pods-jusaitangTests.debug.xcconfig */,
 				69D4AFD3FAD3A39AB87D933E /* Pods-jusaitangTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -1081,7 +1313,7 @@
 				402C445125D381F6004E7951 /* UIFontExtension.swift in Sources */,
 				402C43E125D381DF004E7951 /* NavigationView.swift in Sources */,
 				402C445425D381F6004E7951 /* DictionaryExtension.swift in Sources */,
-				402C433525D37D78004E7951 /* ViewController.swift in Sources */,
+				402C433525D37D78004E7951 /* LoginWithPswVC.swift in Sources */,
 				402C43DC25D381DF004E7951 /* App.swift in Sources */,
 				402C447925D381F6004E7951 /* PagingDirection.swift in Sources */,
 				402C445C25D381F6004E7951 /* SelectAlbumView.swift in Sources */,
@@ -1090,6 +1322,7 @@
 				402C448025D381F6004E7951 /* PagingDistance.swift in Sources */,
 				402C448425D381F6004E7951 /* PagingCellViewModel.swift in Sources */,
 				402C444E25D381F6004E7951 /* HandyJsonExtension.swift in Sources */,
+				4092171125EB99D100A8A78E /* ClickableTextView.swift in Sources */,
 				402C448A25D381F6004E7951 /* PagingViewControllerInfiniteDataSource.swift in Sources */,
 				402C445025D381F6004E7951 /* BaseExtension.swift in Sources */,
 				402C448825D381F6004E7951 /* PageView.swift in Sources */,
@@ -1110,12 +1343,14 @@
 				402C447B25D381F6004E7951 /* PagingState.swift in Sources */,
 				402C43E025D381DF004E7951 /* MsgPushedView.swift in Sources */,
 				402C43D125D381DE004E7951 /* DataManager.swift in Sources */,
+				40163E8D25EE2283005ABBBC /* CompetitionCenterVC.swift in Sources */,
 				402C43DB25D381DF004E7951 /* TableCellViewModel.swift in Sources */,
 				402C447025D381F6004E7951 /* PagingMenuInteraction.swift in Sources */,
 				402C445725D381F6004E7951 /* ImagePickerVM.swift in Sources */,
 				402C446F25D381F6004E7951 /* PagingMenuView.swift in Sources */,
 				402C447D25D381F6004E7951 /* UIColor+interpolation.swift in Sources */,
 				402C43DE25D381DF004E7951 /* BaseViewController.swift in Sources */,
+				40163E6125EE10C7005ABBBC /* User.swift in Sources */,
 				402C447525D381F6004E7951 /* PagingMenuPosition.swift in Sources */,
 				402C43DD25D381DF004E7951 /* Auth.swift in Sources */,
 				402C43D225D381DE004E7951 /* StarEvaluationView.swift in Sources */,
@@ -1124,6 +1359,7 @@
 				402C446525D381F6004E7951 /* PagingController.swift in Sources */,
 				402C43D725D381DE004E7951 /* CycleScrollView.swift in Sources */,
 				402C43D825D381DE004E7951 /* RequestManager.swift in Sources */,
+				4092170925EB993800A8A78E /* InputBackgroundView.swift in Sources */,
 				402C43E625D381DF004E7951 /* ActivityIndicatorView.swift in Sources */,
 				402C447825D381F6004E7951 /* PagingIndicatorOptions.swift in Sources */,
 				402C449825D381F6004E7951 /* JXPagingListContainerView.swift in Sources */,
@@ -1143,6 +1379,7 @@
 				402C43D925D381DE004E7951 /* Gateway.swift in Sources */,
 				402C447225D381F6004E7951 /* PagingSelectedScrollPosition.swift in Sources */,
 				402C447E25D381F6004E7951 /* UIView+constraints.swift in Sources */,
+				40163E5925EE096C005ABBBC /* LoginWithPswVM.swift in Sources */,
 				402C449025D381F6004E7951 /* PagingViewControllerDataSource.swift in Sources */,
 				402C446A25D381F6004E7951 /* PagingCollectionViewLayout.swift in Sources */,
 				402C445825D381F6004E7951 /* ImageVM.swift in Sources */,
@@ -1152,6 +1389,7 @@
 				402C448F25D381F6004E7951 /* PagingViewControllerDelegate.swift in Sources */,
 				402C447F25D381F6004E7951 /* UIEdgeInsets.swift in Sources */,
 				402C448C25D381F6004E7951 /* PagingItem.swift in Sources */,
+				40163E6925EE1246005ABBBC /* College.swift in Sources */,
 				402C448D25D381F6004E7951 /* CollectionView.swift in Sources */,
 				402C445F25D381F6004E7951 /* PagingTitleCell.swift in Sources */,
 				402C447425D381F6004E7951 /* PagingMenuTransition.swift in Sources */,
@@ -1160,16 +1398,21 @@
 				402C446425D381F6004E7951 /* PagingIndicatorLayoutAttributes.swift in Sources */,
 				402C43E525D381DF004E7951 /* ErrorAlertView.swift in Sources */,
 				402C43E225D381DF004E7951 /* BaseScrollView.swift in Sources */,
+				40B69B2525DA86BC000E5631 /* LoginAPI.swift in Sources */,
 				402C449625D381F6004E7951 /* JXPagingView.swift in Sources */,
 				402C445925D381F6004E7951 /* ImagePickerVC.swift in Sources */,
 				402C446925D381F6004E7951 /* PagingSizeCache.swift in Sources */,
 				402C449225D381F6004E7951 /* PagingLayout.swift in Sources */,
 				402C43EA25D381DF004E7951 /* IErrorType.swift in Sources */,
+				40163E8825EE2272005ABBBC /* OrganizeTeamVC.swift in Sources */,
+				40163E6E25EE1278005ABBBC /* University.swift in Sources */,
 				402C446E25D381F6004E7951 /* PagingBorderLayoutAttributes.swift in Sources */,
+				40B69B3225DA8FE2000E5631 /* UIDeviceExtension.swift in Sources */,
 				402C43D025D381DE004E7951 /* LocationAdapter.swift in Sources */,
 				402C447325D381F6004E7951 /* InvalidationState.swift in Sources */,
 				402C445B25D381F6004E7951 /* AlbumSelectionV.swift in Sources */,
 				402C43DA25D381DF004E7951 /* IWebSocket.swift in Sources */,
+				40163E9825EE230A005ABBBC /* UserCenterVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

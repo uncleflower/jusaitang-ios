@@ -11,6 +11,8 @@ import Foundation
 // 这里作为自定义通知的统一管理类
 
 extension Notification.Name{
+    /// 无效令牌
+    static let invalidToken = Notification.Name("login.InvalidToken")
     /// 登录成功
     static let didLogin  = Notification.Name("chat.didLogin")
     /// 退出登录

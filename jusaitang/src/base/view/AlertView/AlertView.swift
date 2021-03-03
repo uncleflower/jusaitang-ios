@@ -120,7 +120,7 @@ class AlertView: UIView {
         alertActions.append(alertAction)
         let button = UIButton.init()
         
-        button.backgroundColor = UIColor(red: 0.34, green: 0.81, blue: 0.75, alpha: 1)
+        button.backgroundColor = UIColor.default
         button.titleLabel?.textAlignment = .center
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.pf_semibold(14)

@@ -18,13 +18,6 @@ class TabBarViewController: UITabBarController {
         super.viewDidLoad()
         self.overrideUserInterfaceStyle = .light
         loadItems()
-        
-//        if try! DataManager.shared.didLoginObservable.value() == false {
-//            let goLoginView = UIView(frame: CGRect(x: 0, y: 0, width: App.screenWidth, height: App.screenHeight))
-//            view.addSubview(goLoginView)
-//            let goLoginTap = UITapGestureRecognizer(target: self, action: #selector(goLogin))
-//            goLoginView.addGestureRecognizer(goLoginTap)
-//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,16 +26,15 @@ class TabBarViewController: UITabBarController {
     }
     
     func loadItems(){
-//        let navi1 = UINavigationController(rootViewController: HomeViewController())
-//        navi1.tabBarItem = UITabBarItem(title: "安心帮", image: UIImage(named: "tab_home")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "tab_home_highlight")?.withRenderingMode(.alwaysOriginal))
-//        let navi2 = UINavigationController(rootViewController: OrdersPagingViewController())
-//        navi2.tabBarItem = UITabBarItem(title: "订单", image: UIImage(named: "tab_order")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "tab_order_highlight")?.withRenderingMode(.alwaysOriginal))
-//        let navi3 = UINavigationController(rootViewController: MineViewController())
-//        navi3.tabBarItem = UITabBarItem(title: "我的", image: UIImage(named: "tab_mine")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "tab_mine_highlight")?.withRenderingMode(.alwaysOriginal))
-//        self.viewControllers = [navi1, navi2, navi3]
-//
-//        self.tabBar.tintColor = UIColor(red: 0.13, green: 0.14, blue: 0.13, alpha: 1)
-//
+        let navi1 = UINavigationController(rootViewController: CompetitionCenterVC())
+        navi1.tabBarItem = UITabBarItem(title: "竞赛中心", image: UIImage(systemName: "crown")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(systemName: "crown.fill")?.withTintColor(.default, renderingMode: .alwaysOriginal))
+        let navi2 = UINavigationController(rootViewController: OrganizeTeamVC())
+        navi2.tabBarItem = UITabBarItem(title: "组队", image: UIImage(systemName: "flag")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(systemName: "flag.fill")?.withTintColor(.default, renderingMode: .alwaysOriginal))
+        let navi3 = UINavigationController(rootViewController: UserCenterVC())
+        navi3.tabBarItem = UITabBarItem(title: "我的", image: UIImage(systemName: "person")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(systemName: "person.fill")?.withTintColor(.default, renderingMode: .alwaysOriginal))
+        self.viewControllers = [navi1, navi2, navi3]
+        
+        self.tabBar.tintColor = UIColor(red: 0.13, green: 0.14, blue: 0.13, alpha: 1)
     }
     
 }
