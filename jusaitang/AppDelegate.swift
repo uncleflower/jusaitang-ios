@@ -7,6 +7,9 @@
 
 import UIKit
 
+let apiHost = "http://39.97.102.209:8999/competition"
+//let apiHost = "http://192.168.43.73:8999/competition"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -19,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = window
         window.backgroundColor = .white
         window.makeKeyAndVisible()
-                
+        
         if DataManager.shared.loggedIn {
             self.window?.rootViewController = UINavigationController.init(rootViewController: TabBarViewController())
             return true

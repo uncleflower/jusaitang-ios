@@ -174,6 +174,7 @@ class LoginWithPswVC: BaseViewController {
                 return
             }
             
+            self?.navigationController?.pushViewController(TabBarViewController(), animated: true)
             self?.getUserData()
         }
         if let error = error {
@@ -193,7 +194,7 @@ class LoginWithPswVC: BaseViewController {
             }
             
             guard let res = res else {return}
-            DataManager.shared.saveUser(user: res)
+            DataManager.shared.saveUser(user: res.user)
         }
     }
 

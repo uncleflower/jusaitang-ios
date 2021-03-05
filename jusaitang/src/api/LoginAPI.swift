@@ -9,17 +9,6 @@ import UIKit
 import Alamofire
 import HandyJSON
 
-class BaseResponse<T>:HandyJSON{
-    var message: String = ""
-    var code: Int = 0
-    var data: T?
-    
-    required init() {
-    }
-}
-
-let apiHost = "http://39.97.102.209:8999"
-
 class LoginAPI: NSObject {
     
     
@@ -57,7 +46,7 @@ class LoginAPI: NSObject {
 
     static func login(request: LoginReq, completion: @escaping(LoginRes?,IError?) -> Void){
         let request = APIRequest<LoginRes>(
-            path: "/competition/user/login",
+            path: "/user/login",
             request: request
         )
         request.post(completion)
@@ -65,17 +54,24 @@ class LoginAPI: NSObject {
 
     static func logout(request: EmptyReq, completion: @escaping(EmptyRes?,IError?) -> Void){
         let request = APIRequest<EmptyRes>(
-            path: "/competition/user/logout",
+            path: "/user/logout",
             request: request
         )
         request.get(auth: .login, completion)
     }
     
     //MARK: 获得用户信息
+    class getUserDataRes: HandyJSON {
+        var user = User()
+        
+        required init() {
+            
+        }
+    }
     
-    static func getUserData(request: EmptyReq, completion: @escaping(User?,IError?) -> Void){
-        let request = APIRequest<User>(
-            path: "/competition/user/findUserByUsername",
+    static func getUserData(request: EmptyReq, completion: @escaping(getUserDataRes?,IError?) -> Void){
+        let request = APIRequest<getUserDataRes>(
+            path: "/user/findUserByUsername",
             request: request
         )
         request.post(auth: .login, completion)

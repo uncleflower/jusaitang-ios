@@ -28,7 +28,8 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.overrideUserInterfaceStyle = .light
-        self.navigationController?.navigationBar.isHidden = true 
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+        self.navigationController?.navigationBar.isHidden = true
         view.addSubview(self.navigationView)
         
         view.backgroundColor = .white
@@ -46,6 +47,7 @@ class BaseViewController: UIViewController {
             (self.navigationView.leftView as? UIButton)?.setImage(nil, for: .normal)
         }
     }
+    
     override var title: String? {
         willSet {
             self.navigationView.titleLabel.text = newValue
@@ -66,3 +68,15 @@ class BaseViewController: UIViewController {
 
 }
 
+extension BaseViewController: UIGestureRecognizerDelegate {
+    override func viewDidDisappear(_ animated: Bool) {
+        guard let viewCount = navigationController?.viewControllers.count else {
+            return
+        }
+        if (viewCount > 1) {
+            navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        }else{
+            navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        }
+    }
+}

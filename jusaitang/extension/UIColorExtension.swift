@@ -10,8 +10,14 @@ import UIKit
 
 extension UIColor{
     static var `default`:UIColor{
-        get{
-            return UIColor(hexString: "#ff7200")!
+        get {
+            return UIColor(hexString: "#eb4d4b")!
+        }
+    }
+    
+    static var backgroundColor: UIColor {
+        get {
+            return UIColor(hexString: "#F7F7FB")!
         }
     }
     

@@ -2,6 +2,7 @@ ${PODS_ROOT}/Target Support Files/Pods-jusaitang-jusaitangUITests/Pods-jusaitang
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/CHIPageControl/CHIPageControl.framework
 ${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework
+${BUILT_PRODUCTS_DIR}/JXSegmentedView/JXSegmentedView.framework
 ${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework
 ${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework
 ${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework

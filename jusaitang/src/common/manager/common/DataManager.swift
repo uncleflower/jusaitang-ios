@@ -23,7 +23,17 @@ class DataManager: NSObject {
     
     var refreshToken: String! = DataManager.readToken().1
     
-    var user: User! = DataManager.readUser()
+    var user: User?{
+        get{
+            return try? userObservable.value()
+        }
+        set{
+            saveUser(user: newValue!)
+            userObservable.onNext(newValue)
+        }
+    }
+    
+    var userObservable: BehaviorSubject<User?> = BehaviorSubject(value: DataManager.readUser())
     
     var loggedIn: Bool {
         return self.user != nil
@@ -57,8 +67,9 @@ class DataManager: NSObject {
     
     //User
     func saveUser(user: User) {
-        self.user = user
-        UserDefaults.standard.set(user, forKey: DataManager.userKey)
+        if let userString = user.toJSONString(){
+            UserDefaults.standard.set(userString, forKey: DataManager.userKey)
+        }
     }
     
     static func readUser() -> User? {
@@ -72,23 +83,4 @@ class DataManager: NSObject {
         UserDefaults.standard.removeObject(forKey: DataManager.userKey)
         return UserDefaults.standard.synchronize()
     }
-    
-//    func login(_ completion: @escaping(IError?) -> Void){
-//
-//        let req = LoginAPI.GetGuardInfoReq()
-//        LoginAPI.getGuardInfo(request: req) {[weak self] (res, error) in
-//            if let error = error {
-//                completion(error)
-//                return
-//            }
-//            guard let res = res else {return}
-//
-//            _ = self?.save(guardModel: res)
-//            completion(nil)
-//        }
-//    }
-    
-//    func login(){
-//        Router.shared.openLogin()
-//    }
 }

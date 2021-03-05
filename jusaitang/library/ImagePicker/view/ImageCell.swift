@@ -42,9 +42,9 @@ class ImageCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubview(imageView)
-        addSubview(selectImg)
-        addSubview(surfaceView)
+        contentView.addSubview(imageView)
+        contentView.addSubview(selectImg)
+        contentView.addSubview(surfaceView)
         
         makeConstraints()
     }

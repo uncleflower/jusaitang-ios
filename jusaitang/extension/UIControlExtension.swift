@@ -30,4 +30,8 @@ extension UIControl{
         let sleeve = ClosureSleeve(attachTo: self, closure: action)
         addTarget(sleeve, action: #selector(ClosureSleeve.invoke), for: controlEvents)
     }
+    
+    func removeAction(){
+        self.removeTarget(nil, action: nil, for: .allEvents)
+    }
 }

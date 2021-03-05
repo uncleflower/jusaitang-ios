@@ -19,14 +19,9 @@ extension UIFont {
         }
         return UIFont.systemFont(ofSize: fontSize)
     }
-//    class func pf_medium(_ fontSize: CGFloat) -> UIFont{
-//        if let font = UIFont.init(name: "PingFangSC-Medium", size: fontSize) {
-//            return font
-//        }
-//        return UIFont.systemFont(ofSize: fontSize)
-//    }
+    
     class func pf_medium(_ fontSize: CGFloat) -> UIFont{
-        if let font = UIFont.init(name: "PingFangSC-Regular", size: fontSize) {
+        if let font = UIFont.init(name: "PingFangSC-Medium", size: fontSize) {
             return font
         }
         return UIFont.systemFont(ofSize: fontSize)

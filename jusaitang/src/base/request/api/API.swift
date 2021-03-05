@@ -10,9 +10,14 @@ import UIKit
 import Alamofire
 import HandyJSON
 
-import UIKit
-import Alamofire
-import HandyJSON
+class BaseResponse<T>:HandyJSON{
+    var message: String = ""
+    var code: Int = 0
+    var data: T?
+    
+    required init() {
+    }
+}
 
 class EmptyReq:HandyJSON {
     required init() {
@@ -154,7 +159,8 @@ class APIRequest<T>: NSObject {
         }
         print("Response: \(dataString)")
         
-        if response.code != 0{
+        //一般 success = 0
+        if response.code != 1{
             if response.code == IErrorType.tokenInvalid.rawValue{
                 NotificationCenter.default.post(name: .invalidToken, object: nil)
                 completion(nil, nil)

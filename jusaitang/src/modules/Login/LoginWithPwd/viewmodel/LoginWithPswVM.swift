@@ -33,16 +33,16 @@ class LoginWithPswVM: NSObject {
         }
         req.password = password
         req.userName = sid
-        req.roles.append(LoginAPI.RoleId())
         LoginAPI.login(request: req) { (res, error) in
             if let error = error {
-                ErrorAlertView.show(error: error, style: .topError)
+                complete(error)
                 return
             }
             
             guard let res = res else {return}
             
             DataManager.shared.saveToken(accessToken: res.accessToken, refreshToken: "")
+            complete(nil)
         }
         return nil
     }

@@ -52,13 +52,19 @@ class ImagePickerVM: NSObject {
     }
     
     func fetchAssetCollections() {
+        let appleLanguages = UserDefaults.standard.object(forKey: "AppleLanguages")
+        UserDefaults.standard.set(NSArray.init(array: ["zh-hans"]), forKey: "AppleLanguages")
         let smartAssetCollections = PHAssetCollection.fetchAssetCollections(with: .smartAlbum,
                                                                             subtype: .albumRegular,
                                                                             options: nil)
         // TODO: 存在数组越界
     
         for index in 0 ..< smartAssetCollections.count {
-            let fetchResults = PHAsset.fetchAssets(in: smartAssetCollections[index], options: nil)
+            let assetCollection = smartAssetCollections[index]
+            if assetCollection.localizedTitle != "最近项目"{
+                continue;
+            }
+            let fetchResults = PHAsset.fetchAssets(in: assetCollection, options: nil)
             if fetchResults.count == 0 {
                 continue;
             }
@@ -72,13 +78,15 @@ class ImagePickerVM: NSObject {
                 
             }
             album.id = index
-            album.title = smartAssetCollections[index].localizedTitle
+            album.title = assetCollection.localizedTitle
             albumLibrarys.append(album)
         }
         
         if self.albumLibrarys.count > 0 {
             self.selectedAlbumObservable.onNext(self.albumLibrarys[0])
         }
+        UserDefaults.standard.set(appleLanguages, forKey: "AppleLanguages")
     }
+    
     
 }

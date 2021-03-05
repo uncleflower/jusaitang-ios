@@ -9,6 +9,22 @@
 import UIKit
 
 class Router {
+    static let shared = Router()
     
+    // UserCenter
+    static func openAccountInfo() {
+        let vc = AccountInfoVC()
+        App.navigationController?.show(vc, sender: true)
+    }
+    
+    static func openAboutUs() {
+        let vc = AboutUsVC()
+        App.navigationController?.show(vc, sender: true)
+    }
+    
+    static func openFeedback() {
+        let vc = FeedbackVC()
+        App.navigationController?.show(vc, sender: true)
+    }
 }
 

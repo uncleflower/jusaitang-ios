@@ -38,7 +38,7 @@ class ImagePickerVC: BaseViewController {
     }()
     
     let selectAlbumView: SelectAlbumView = {
-        let view = SelectAlbumView(frame: CGRect(x: 0, y: -180 + App.naviStatusHeight, width: App.screenWidth, height: 180))
+        let view = SelectAlbumView(frame: CGRect(x: 0, y: -App.screenHeight + App.naviStatusHeight, width: App.screenWidth, height: App.screenHeight))
         return view
     }()
     
@@ -132,17 +132,20 @@ class ImagePickerVC: BaseViewController {
         popView()
     }
     
-    func hideSelectAlubmView() {
+    @objc func hideSelectAlubmView() {
         bkgView.snp.remakeConstraints { (make) in
             make.bottom.equalToSuperview().offset(App.screenHeight)
         }
         
         UIView.animate(withDuration: 0.35, animations: {
             self.selectAlbumView.frame.origin.y = -self.selectAlbumView.height
+        }, completion: { (_) in
+            self.selectAlbumBtn.removeAction()
+            self.selectAlbumBtn.addTarget(self, action: #selector(self.showAlbum), for: .touchUpInside)
         })
         
-        for index in 0 ..< 4 {
-            selectAlbumView.albumSelectionVs[index].isSelectedImg.isHidden = true
+        for album in selectAlbumView.albumSelectionVs {
+            album.isSelectedImg.isHidden = true
         }
         bkgView.alpha = 0
     }
@@ -152,6 +155,8 @@ class ImagePickerVC: BaseViewController {
             make.edges.equalToSuperview()
         }
         
+        selectAlbumBtn.removeAction()
+        selectAlbumBtn.addTarget(self, action: #selector(hideSelectAlubmView), for: .touchUpInside)
         selectAlbumView.frame.origin.y = -selectAlbumView.height
     }
     
@@ -184,16 +189,20 @@ extension ImagePickerVC: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! ImageCell
+        view.endEditing(true)
         
         guard
             let viewModel = cell.viewModel,
             let isSelected = try? viewModel.isSelectObservable.value()
             else {return}
         if isSelected {
-            self.viewModel.selectedImgs = self.viewModel.selectedImgs.filter({ (model) -> Bool in
-                model.id == viewModel.model.id
-            })
-            viewModel.isSelectObservable.onNext(false)
+            for index in 0 ..< self.viewModel.selectedImgs.count {
+                if self.viewModel.selectedImgs[index].id == viewModel.model.id {
+                    self.viewModel.selectedImgs.remove(at: index)
+                    viewModel.isSelectObservable.onNext(false)
+                    return
+                }
+            }
         }else{
             if self.viewModel.selectedImgs.count < limitPhotos {
                 self.viewModel.selectedImgs.append(viewModel.model)
@@ -215,6 +224,11 @@ extension ImagePickerVC: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCell
         let albumVM = try? viewModel.selectedAlbumObservable.value()
         cell.bindViewModel(viewModel: albumVM!.images[indexPath.item])
+        for index in 0 ..< viewModel.selectedImgs.count {
+            if albumVM!.images[indexPath.item].model.id == viewModel.selectedImgs[index].id {
+                cell.viewModel.isSelectObservable.onNext(true)
+            }
+        }
         
         return cell
     }

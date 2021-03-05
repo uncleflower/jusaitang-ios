@@ -15,10 +15,24 @@ class SelectAlbumView: UIView {
     
     var didSelect:((AlbumVM?) -> ())? = nil
             
-    var albumSelectionVs: [AlbumSelectionV] = []
+    var albumSelectionVs: [SelectAlbumCell] = []
+    
+    var tableView: UITableView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .none
+        backgroundColor = UIColor(hexString: "#000000", alpha: 0)
+        tableView = BaseTableView.init(frame: self.frame,style: .plain)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.backgroundView?.alpha = 0
+        tableView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
+        tableView.separatorStyle = .none
+        tableView.isScrollEnabled = false
+        tableView.register(SelectAlbumCell.self, forCellReuseIdentifier: "SelectAlbumCell")
+        addSubview(tableView)
+        
         makeConstraints()
     }
     
@@ -27,48 +41,38 @@ class SelectAlbumView: UIView {
     }
     
     func makeConstraints() {
-        
-        for index in 0 ..< self.viewModels.count {
-            if index == 0 {
-                albumSelectionVs[index].snp.makeConstraints { (make) in
-                    make.top.equalToSuperview()
-                    make.leading.equalToSuperview()
-                    make.trailing.equalToSuperview()
-                    make.height.equalTo(45)
-                }
-            } else {
-                albumSelectionVs[index].snp.makeConstraints { (make) in
-                    make.top.equalTo(albumSelectionVs[index-1].snp.bottom)
-                    make.leading.equalToSuperview()
-                    make.trailing.equalToSuperview()
-                    make.height.equalTo(45)
-                }
-            }
+        tableView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
         }
     }
     
     func bindViewModel(viewModels: [AlbumVM]) {
-        
-        for view in albumSelectionVs{
-            view.removeSubviews()
-        }
-        albumSelectionVs = []
-        
         self.viewModels = viewModels
-        
-        for viewModel in viewModels {
-            let albumSelectionV = AlbumSelectionV.init(frame: .zero)
-            albumSelectionV.bindViewModel(viewModel: viewModel)
-            albumSelectionV.isSelectedImg.isHidden = !viewModel.isSelect
-            
-            albumSelectionV.addAction {
-                self.didSelect?(viewModel)
-            }
-            
-            addSubview(albumSelectionV)
-            albumSelectionVs.append(albumSelectionV)
-        }
-        
-        makeConstraints()
     }
+}
+
+extension SelectAlbumView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.didSelect?(viewModels[indexPath.item])
+    }
+}
+
+extension SelectAlbumView: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModels.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SelectAlbumCell", for: indexPath) as! SelectAlbumCell
+        
+        cell.bindViewModel(viewModel: viewModels[indexPath.item])
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    
 }

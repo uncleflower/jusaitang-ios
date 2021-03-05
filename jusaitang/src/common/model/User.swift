@@ -10,7 +10,8 @@ import HandyJSON
 
 class User: HandyJSON {
     var uid: String = ""
-    var username: String = ""
+    var avatar: String = ""
+    var studentNumber: String = ""
     var password: String = ""
     var name: String = ""
     var phone: String = ""
@@ -24,7 +25,9 @@ class User: HandyJSON {
         mapper <<<
             self.uid <-- "userId"
         mapper <<<
-            self.username <-- "userName"
+            self.studentNumber <-- "userName"
+        mapper <<<
+            self.avatar <-- "userPic"
     }
     
     required init() {

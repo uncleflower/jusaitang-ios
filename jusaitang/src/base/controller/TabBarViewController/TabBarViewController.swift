@@ -28,7 +28,7 @@ class TabBarViewController: UITabBarController {
     func loadItems(){
         let navi1 = UINavigationController(rootViewController: CompetitionCenterVC())
         navi1.tabBarItem = UITabBarItem(title: "竞赛中心", image: UIImage(systemName: "crown")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(systemName: "crown.fill")?.withTintColor(.default, renderingMode: .alwaysOriginal))
-        let navi2 = UINavigationController(rootViewController: OrganizeTeamVC())
+        let navi2 = UINavigationController(rootViewController: TeamPagingViewController())
         navi2.tabBarItem = UITabBarItem(title: "组队", image: UIImage(systemName: "flag")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(systemName: "flag.fill")?.withTintColor(.default, renderingMode: .alwaysOriginal))
         let navi3 = UINavigationController(rootViewController: UserCenterVC())
         navi3.tabBarItem = UITabBarItem(title: "我的", image: UIImage(systemName: "person")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(systemName: "person.fill")?.withTintColor(.default, renderingMode: .alwaysOriginal))

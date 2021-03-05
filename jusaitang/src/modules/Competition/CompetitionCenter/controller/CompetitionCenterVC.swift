@@ -11,6 +11,8 @@ import RxCocoa
 
 class CompetitionCenterVC: BaseViewController {
     
+    let viewModel = CompetitionCenterVM()
+    
     let chatButton: UIButton = {
         let view = UIButton()
         view.setImage(UIImage(named: "communicate"), for: .normal)
@@ -19,22 +21,54 @@ class CompetitionCenterVC: BaseViewController {
         return view
     }()
     
+    let competitionsView: CompetitionsView = {
+        let view = CompetitionsView()
+        view.cornerRadius = 8
+        return view
+    }()
+    
     private let disposeBag = DisposeBag()
     
     override func loadView() {
         super.loadView()
+        
+        self.view.addSubview(competitionsView)
+        
+        loadData()
     }
     
     override func makeConstraints() {
         super.makeConstraints()
+        
+        competitionsView.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(20 + App.naviStatusHeight)
+            make.leading.equalToSuperview().offset(15)
+            make.trailing.equalToSuperview().offset(-15)
+            make.height.equalTo(340)
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor(hexString: "#F7F7FB")
+        view.backgroundColor = UIColor.backgroundColor
         self.navigationView.rightView = chatButton
         self.navigationView.titleLabel.text = "竞赛中心"
+    }
+    
+    override func bindViewModel() {
+        super.bindViewModel()
+        
+        competitionsView.bindViewModel(viewModel: viewModel.competitionsVM)
+    }
+    
+    func loadData() {
+        viewModel.competitionsVM.getCompetitionTypes { (error) in
+            if let error = error {
+                ErrorAlertView.show(error: error, style: .topError)
+                return
+            }
+        }
     }
     
 }

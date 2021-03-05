@@ -1,15 +1,14 @@
 //
-//  AlbumSelectionV.swift
-//  an-xin-bang
+//  SelectAlbumCell.swift
+//  jusaitang
 //
-//  Created by Jiehao Zhang on 2020/7/25.
-//  Copyright © 2020 IdeThink Inc. All rights reserved.
+//  Created by Jiehao Zhang on 2021/3/5.
 //
 
 import UIKit
 import SnapKit
 
-class AlbumSelectionV: UIControl {
+class SelectAlbumCell: UITableViewCell {
     
     let lastImg: UIImageView = {
         let view = UIImageView()
@@ -51,15 +50,15 @@ class AlbumSelectionV: UIControl {
         return view
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .white
         
-        addSubview(lastImg)
-        addSubview(albumName)
-        addSubview(imgCount)
-        addSubview(lineView)
-        addSubview(isSelectedImg)
+        contentView.addSubview(lastImg)
+        contentView.addSubview(albumName)
+        contentView.addSubview(imgCount)
+        contentView.addSubview(lineView)
+        contentView.addSubview(isSelectedImg)
         
         makeConstraints()
     }

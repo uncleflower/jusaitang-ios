@@ -17,6 +17,8 @@ target 'jusaitang' do
   pod 'SocketRocket'  
   pod 'CHIPageControl', '~> 0.1.3'
   pod 'CHIPageControl/Aji'
+  pod 'JXSegmentedView'
+  pod 'WechatOpenSDK'
 
 
   target 'jusaitangTests' do
