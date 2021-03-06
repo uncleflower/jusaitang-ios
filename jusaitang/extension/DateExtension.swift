@@ -118,12 +118,6 @@ extension Date{
             return "剩余\(hours)小时"
         }
         let days = Int(reduceTime / 3600 / 24)
-        if days < 30 {
-            return "剩余\(days)天"
-        }
-        
-        return "nil"
+        return "剩余\(days)天"
     }
-    
-    
 }

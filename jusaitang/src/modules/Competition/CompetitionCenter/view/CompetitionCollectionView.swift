@@ -32,6 +32,7 @@ class CompetitionCollectionView: UIView {
         collection.delegate = self
         collection.dataSource = self
         collection.isScrollEnabled = true
+        collection.showsHorizontalScrollIndicator = false
         collection.contentInset = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right: 10)
         collection.register(CompetitionCollectionCell.self, forCellWithReuseIdentifier: "CompetitionCollectionCell")
         

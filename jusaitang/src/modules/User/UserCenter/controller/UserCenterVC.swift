@@ -192,5 +192,12 @@ class UserCenterVC: BaseViewController {
         avatarImg.setImage(url: apiHost + user.avatar)
         usernameLabel.text = "\(user.name) \(user.college.collegeName)"
         smallTitle.text = "\(user.period)级 \(user.userClassName)"
+        
+        mySelectionViews[0].addAction {
+            let shareSeleView = ShareAppView(frame: CGRect.init(x: 0, y: 0, width: App.screenWidth, height:  App.screenHeight))
+            shareSeleView.show { (share) in
+                print(share)
+            }
+        }
     }
 }

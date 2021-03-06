@@ -16,6 +16,7 @@ class TeamPagingViewController: BaseViewController {
     
     var titles = ["组队", "我的队伍", "队伍申请"]
     let dataSource: JXSegmentedTitleDataSource = JXSegmentedTitleDataSource()
+    let indicator: JXSegmentedIndicatorBackgroundView = JXSegmentedIndicatorBackgroundView()
     var hotReloadModel : Bool = false
     
     var categoryView: JXSegmentedView = JXSegmentedView()
@@ -25,17 +26,21 @@ class TeamPagingViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource.titles = titles
-        dataSource.titleSelectedColor = UIColor(hexString: "#333333")!
+        dataSource.titleSelectedColor = UIColor.white
         dataSource.titleSelectedFont = UIFont.pf_semibold(18)
         dataSource.titleNormalColor = UIColor(hexString: "#999999")!
         dataSource.titleNormalFont  = UIFont.pf_semibold(14)
         dataSource.isTitleColorGradientEnabled = true
         dataSource.isTitleZoomEnabled = true
         
+        indicator.indicatorColor = UIColor.default
+        indicator.isIndicatorWidthSameAsItemContent = true
+        
         self.categoryView.backgroundColor = UIColor.backgroundColor
         self.categoryView.delegate = self
         self.categoryView.isContentScrollViewClickTransitionAnimationEnabled = false
         self.categoryView.dataSource = dataSource
+        self.categoryView.indicators = [indicator]
         self.categoryView.listContainer = self.segmentedListContainerView
         
         self.navigationView.backgroundColor = .backgroundColor
