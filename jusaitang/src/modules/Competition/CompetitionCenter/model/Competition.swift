@@ -31,7 +31,7 @@ class Competition: HandyJSON {
         mapper <<<
             self.name <-- "competitionName"
         mapper <<<
-            self.time <-- "competitionTime"
+            self.time <-- "competitionStoptime"
         mapper <<<
             self.place <-- "competitionSite"
         mapper <<<

@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applinks:www.tracys.cn:8999</string>
+		<string>applinks:www.tracys.cn</string>
 	</array>
 </dict>
 </plist>

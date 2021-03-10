@@ -164,10 +164,27 @@
 		4036951225F2227500320FC1 /* TeamPagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4036951125F2227500320FC1 /* TeamPagingViewController.swift */; };
 		4036953125F332D500320FC1 /* ShareAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4036953025F332D500320FC1 /* ShareAppCell.swift */; };
 		4036953625F332EA00320FC1 /* ShareAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4036953525F332EA00320FC1 /* ShareAppView.swift */; };
+		4064E35525F7AD8500039948 /* BannerScrollViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4064E35425F7AD8500039948 /* BannerScrollViewCell.swift */; };
+		4064E36425F7ADEF00039948 /* BannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4064E36325F7ADEF00039948 /* BannerViewModel.swift */; };
+		4064E36C25F7AE1400039948 /* BannerItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4064E36B25F7AE1400039948 /* BannerItemModel.swift */; };
+		4064E37125F7AE7B00039948 /* BannerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4064E37025F7AE7B00039948 /* BannerViewCell.swift */; };
+		4064E37625F7AF6B00039948 /* UIScrollviewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4064E37525F7AF6B00039948 /* UIScrollviewExtension.swift */; };
 		4092170925EB993800A8A78E /* InputBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4092170825EB993800A8A78E /* InputBackgroundView.swift */; };
 		4092171125EB99D100A8A78E /* ClickableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4092171025EB99D100A8A78E /* ClickableTextView.swift */; };
 		40B69B2525DA86BC000E5631 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B69B2425DA86BC000E5631 /* LoginAPI.swift */; };
 		40B69B3225DA8FE2000E5631 /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B69B3125DA8FE2000E5631 /* UIDeviceExtension.swift */; };
+		40C3E7BD25F85BD900E80097 /* AnnouncementTableVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3E7BC25F85BD900E80097 /* AnnouncementTableVM.swift */; };
+		40C3E7C225F85C2000E80097 /* AnnouncementItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3E7C125F85C2000E80097 /* AnnouncementItem.swift */; };
+		40C3E7C825F85D1B00E80097 /* AnnouncementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3E7C725F85D1B00E80097 /* AnnouncementTableViewCell.swift */; };
+		40C3E7D025F85D2D00E80097 /* AnnouncementTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3E7CF25F85D2D00E80097 /* AnnouncementTableView.swift */; };
+		40C3E7DA25F8AB2C00E80097 /* CompetitionDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3E7D925F8AB2C00E80097 /* CompetitionDetailModel.swift */; };
+		40C3E7DF25F8B46200E80097 /* CompetitoinDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3E7DE25F8B46200E80097 /* CompetitoinDetailVC.swift */; };
+		40C3E7E425F8B47900E80097 /* CompetitionDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3E7E325F8B47900E80097 /* CompetitionDetailVM.swift */; };
+		40C3E7E925F8BEF300E80097 /* IconLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3E7E825F8BEF300E80097 /* IconLabelView.swift */; };
+		40C3E7F125F8DB1200E80097 /* WebBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3E7F025F8DB1200E80097 /* WebBrowser.swift */; };
+		40C3E7FE25F8DB2B00E80097 /* WebBrowserVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3E7FD25F8DB2B00E80097 /* WebBrowserVM.swift */; };
+		40C3E80825F8E08E00E80097 /* AnnouncementListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3E80725F8E08E00E80097 /* AnnouncementListVC.swift */; };
+		40C3E81025F8E09600E80097 /* AnnouncementListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3E80F25F8E09600E80097 /* AnnouncementListVM.swift */; };
 		B06FA35777FF02347CF18AF7 /* Pods_jusaitangTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C50735F77C01DC2A9133C534 /* Pods_jusaitangTests.framework */; };
 		E157941CC81A62F8E91E8E47 /* Pods_jusaitang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194005AE20A4220592DD449B /* Pods_jusaitang.framework */; };
 /* End PBXBuildFile section */
@@ -355,10 +372,27 @@
 		4036951125F2227500320FC1 /* TeamPagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamPagingViewController.swift; sourceTree = "<group>"; };
 		4036953025F332D500320FC1 /* ShareAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareAppCell.swift; sourceTree = "<group>"; };
 		4036953525F332EA00320FC1 /* ShareAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareAppView.swift; sourceTree = "<group>"; };
+		4064E35425F7AD8500039948 /* BannerScrollViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerScrollViewCell.swift; sourceTree = "<group>"; };
+		4064E36325F7ADEF00039948 /* BannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewModel.swift; sourceTree = "<group>"; };
+		4064E36B25F7AE1400039948 /* BannerItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerItemModel.swift; sourceTree = "<group>"; };
+		4064E37025F7AE7B00039948 /* BannerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewCell.swift; sourceTree = "<group>"; };
+		4064E37525F7AF6B00039948 /* UIScrollviewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollviewExtension.swift; sourceTree = "<group>"; };
 		4092170825EB993800A8A78E /* InputBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputBackgroundView.swift; sourceTree = "<group>"; };
 		4092171025EB99D100A8A78E /* ClickableTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickableTextView.swift; sourceTree = "<group>"; };
 		40B69B2425DA86BC000E5631 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		40B69B3125DA8FE2000E5631 /* UIDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
+		40C3E7BC25F85BD900E80097 /* AnnouncementTableVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementTableVM.swift; sourceTree = "<group>"; };
+		40C3E7C125F85C2000E80097 /* AnnouncementItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementItem.swift; sourceTree = "<group>"; };
+		40C3E7C725F85D1B00E80097 /* AnnouncementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementTableViewCell.swift; sourceTree = "<group>"; };
+		40C3E7CF25F85D2D00E80097 /* AnnouncementTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementTableView.swift; sourceTree = "<group>"; };
+		40C3E7D925F8AB2C00E80097 /* CompetitionDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionDetailModel.swift; sourceTree = "<group>"; };
+		40C3E7DE25F8B46200E80097 /* CompetitoinDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitoinDetailVC.swift; sourceTree = "<group>"; };
+		40C3E7E325F8B47900E80097 /* CompetitionDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionDetailVM.swift; sourceTree = "<group>"; };
+		40C3E7E825F8BEF300E80097 /* IconLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconLabelView.swift; sourceTree = "<group>"; };
+		40C3E7F025F8DB1200E80097 /* WebBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBrowser.swift; sourceTree = "<group>"; };
+		40C3E7FD25F8DB2B00E80097 /* WebBrowserVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBrowserVM.swift; sourceTree = "<group>"; };
+		40C3E80725F8E08E00E80097 /* AnnouncementListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementListVC.swift; sourceTree = "<group>"; };
+		40C3E80F25F8E09600E80097 /* AnnouncementListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementListVM.swift; sourceTree = "<group>"; };
 		65462F3E9DFDAB6B60AF26A7 /* Pods-jusaitang-jusaitangUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jusaitang-jusaitangUITests.debug.xcconfig"; path = "Target Support Files/Pods-jusaitang-jusaitangUITests/Pods-jusaitang-jusaitangUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		67247753BFE61206F9F98256 /* Pods-jusaitang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jusaitang.release.xcconfig"; path = "Target Support Files/Pods-jusaitang/Pods-jusaitang.release.xcconfig"; sourceTree = "<group>"; };
 		69D4AFD3FAD3A39AB87D933E /* Pods-jusaitangTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jusaitangTests.release.xcconfig"; path = "Target Support Files/Pods-jusaitangTests/Pods-jusaitangTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -438,6 +472,8 @@
 			isa = PBXGroup;
 			children = (
 				40163E7425EE21DC005ABBBC /* CompetitionCenter */,
+				40C3E80225F8DFE000E80097 /* AnnouncementList */,
+				40C3E7D425F8AAFF00E80097 /* CompetitionDetail */,
 			);
 			path = Competition;
 			sourceTree = "<group>";
@@ -520,6 +556,8 @@
 			children = (
 				4036941325EF628500320FC1 /* CompetitionSelectionModel.swift */,
 				4036945625F0C89500320FC1 /* Competition.swift */,
+				4064E36B25F7AE1400039948 /* BannerItemModel.swift */,
+				40C3E7C125F85C2000E80097 /* AnnouncementItem.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -527,10 +565,9 @@
 		40163E7C25EE223A005ABBBC /* view */ = {
 			isa = PBXGroup;
 			children = (
-				4036940925EF5C0F00320FC1 /* CompetitionsView.swift */,
-				4036940E25EF5C2A00320FC1 /* CompetitionSelectionView.swift */,
-				4036944725F0C72700320FC1 /* CompetitionCollectionView.swift */,
-				4036944C25F0C75200320FC1 /* CompetitionCollectionCell.swift */,
+				4064E35325F7AD6A00039948 /* Banner */,
+				4064E35225F7AD5200039948 /* Competitions */,
+				40C3E7C625F85D0400E80097 /* Announcement */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -541,6 +578,8 @@
 				4036941825EF67AA00320FC1 /* CompetitionCenterVM.swift */,
 				4036941D25EF67E200320FC1 /* CompetitionsVM.swift */,
 				4036945125F0C7C900320FC1 /* CompetitionCollectionVM.swift */,
+				4064E36325F7ADEF00039948 /* BannerViewModel.swift */,
+				40C3E7BC25F85BD900E80097 /* AnnouncementTableVM.swift */,
 			);
 			path = viewmodel;
 			sourceTree = "<group>";
@@ -954,6 +993,7 @@
 				402C43FA25D381F5004E7951 /* UIImageExtension.swift */,
 				402C43FB25D381F5004E7951 /* DateExtension.swift */,
 				40B69B3125DA8FE2000E5631 /* UIDeviceExtension.swift */,
+				4064E37525F7AF6B00039948 /* UIScrollviewExtension.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -961,6 +1001,7 @@
 		402C43FC25D381F6004E7951 /* library */ = {
 			isa = PBXGroup;
 			children = (
+				40C3E7ED25F8DADE00E80097 /* WebBrowser */,
 				402C43FD25D381F6004E7951 /* ImagePicker */,
 				402C440925D381F6004E7951 /* Parchment */,
 				402C444425D381F6004E7951 /* JXPagingView */,
@@ -1371,12 +1412,150 @@
 			path = viewmodel;
 			sourceTree = "<group>";
 		};
+		4064E35225F7AD5200039948 /* Competitions */ = {
+			isa = PBXGroup;
+			children = (
+				4036940925EF5C0F00320FC1 /* CompetitionsView.swift */,
+				4036940E25EF5C2A00320FC1 /* CompetitionSelectionView.swift */,
+				4036944725F0C72700320FC1 /* CompetitionCollectionView.swift */,
+				4036944C25F0C75200320FC1 /* CompetitionCollectionCell.swift */,
+			);
+			path = Competitions;
+			sourceTree = "<group>";
+		};
+		4064E35325F7AD6A00039948 /* Banner */ = {
+			isa = PBXGroup;
+			children = (
+				4064E35425F7AD8500039948 /* BannerScrollViewCell.swift */,
+				4064E37025F7AE7B00039948 /* BannerViewCell.swift */,
+			);
+			path = Banner;
+			sourceTree = "<group>";
+		};
 		4092170725EB992300A8A78E /* InputBackgroundView */ = {
 			isa = PBXGroup;
 			children = (
 				4092170825EB993800A8A78E /* InputBackgroundView.swift */,
 			);
 			path = InputBackgroundView;
+			sourceTree = "<group>";
+		};
+		40C3E7C625F85D0400E80097 /* Announcement */ = {
+			isa = PBXGroup;
+			children = (
+				40C3E7CF25F85D2D00E80097 /* AnnouncementTableView.swift */,
+				40C3E7C725F85D1B00E80097 /* AnnouncementTableViewCell.swift */,
+			);
+			path = Announcement;
+			sourceTree = "<group>";
+		};
+		40C3E7D425F8AAFF00E80097 /* CompetitionDetail */ = {
+			isa = PBXGroup;
+			children = (
+				40C3E7D825F8AB1B00E80097 /* controller */,
+				40C3E7D725F8AB1500E80097 /* viewmodel */,
+				40C3E7D625F8AB1000E80097 /* view */,
+				40C3E7D525F8AB0C00E80097 /* model */,
+			);
+			path = CompetitionDetail;
+			sourceTree = "<group>";
+		};
+		40C3E7D525F8AB0C00E80097 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				40C3E7D925F8AB2C00E80097 /* CompetitionDetailModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		40C3E7D625F8AB1000E80097 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				40C3E7E825F8BEF300E80097 /* IconLabelView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		40C3E7D725F8AB1500E80097 /* viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				40C3E7E325F8B47900E80097 /* CompetitionDetailVM.swift */,
+			);
+			path = viewmodel;
+			sourceTree = "<group>";
+		};
+		40C3E7D825F8AB1B00E80097 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				40C3E7DE25F8B46200E80097 /* CompetitoinDetailVC.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		40C3E7ED25F8DADE00E80097 /* WebBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				40C3E7EE25F8DAF500E80097 /* controller */,
+				40C3E7EF25F8DAFC00E80097 /* viewmodel */,
+			);
+			path = WebBrowser;
+			sourceTree = "<group>";
+		};
+		40C3E7EE25F8DAF500E80097 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				40C3E7F025F8DB1200E80097 /* WebBrowser.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		40C3E7EF25F8DAFC00E80097 /* viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				40C3E7FD25F8DB2B00E80097 /* WebBrowserVM.swift */,
+			);
+			path = viewmodel;
+			sourceTree = "<group>";
+		};
+		40C3E80225F8DFE000E80097 /* AnnouncementList */ = {
+			isa = PBXGroup;
+			children = (
+				40C3E80525F8E06B00E80097 /* controller */,
+				40C3E80625F8E07500E80097 /* viewmodel */,
+				40C3E80325F8E05E00E80097 /* view */,
+				40C3E80425F8E06200E80097 /* model */,
+			);
+			path = AnnouncementList;
+			sourceTree = "<group>";
+		};
+		40C3E80325F8E05E00E80097 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		40C3E80425F8E06200E80097 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		40C3E80525F8E06B00E80097 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				40C3E80725F8E08E00E80097 /* AnnouncementListVC.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		40C3E80625F8E07500E80097 /* viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				40C3E80F25F8E09600E80097 /* AnnouncementListVM.swift */,
+			);
+			path = viewmodel;
 			sourceTree = "<group>";
 		};
 		45D9455A9AA8FC6BBC7685B3 /* Pods */ = {
@@ -1647,11 +1826,13 @@
 				402C444F25D381F6004E7951 /* UIViewExtensions.swift in Sources */,
 				402C447A25D381F6004E7951 /* PagingBorderOptions.swift in Sources */,
 				402C43D425D381DE004E7951 /* MapView.swift in Sources */,
+				40C3E81025F8E09600E80097 /* AnnouncementListVM.swift in Sources */,
 				402C445E25D381F6004E7951 /* PagingViewController.swift in Sources */,
 				4036945725F0C89500320FC1 /* Competition.swift in Sources */,
 				403694C125F11F8400320FC1 /* AboutUsVC.swift in Sources */,
 				4036945C25F10B9100320FC1 /* MyHeadSelectionView.swift in Sources */,
 				402C43E725D381DF004E7951 /* BaseView.swift in Sources */,
+				40C3E7E425F8B47900E80097 /* CompetitionDetailVM.swift in Sources */,
 				402C449425D381F6004E7951 /* JXPagingSmoothView.swift in Sources */,
 				402C445525D381F6004E7951 /* UIImageExtension.swift in Sources */,
 				4036951225F2227500320FC1 /* TeamPagingViewController.swift in Sources */,
@@ -1670,7 +1851,9 @@
 				4036949025F1160500320FC1 /* ChangePwdVM.swift in Sources */,
 				402C43DC25D381DF004E7951 /* App.swift in Sources */,
 				403694CF25F2146F00320FC1 /* FeedbackImgCell.swift in Sources */,
+				4064E37625F7AF6B00039948 /* UIScrollviewExtension.swift in Sources */,
 				402C447925D381F6004E7951 /* PagingDirection.swift in Sources */,
+				4064E37125F7AE7B00039948 /* BannerViewCell.swift in Sources */,
 				4036946625F10E2200320FC1 /* AccountInfoVM.swift in Sources */,
 				402C445C25D381F6004E7951 /* SelectAlbumView.swift in Sources */,
 				402C446D25D381F6004E7951 /* PagingFiniteDataSource.swift in Sources */,
@@ -1678,6 +1861,7 @@
 				4036953625F332EA00320FC1 /* ShareAppView.swift in Sources */,
 				402C448025D381F6004E7951 /* PagingDistance.swift in Sources */,
 				402C448425D381F6004E7951 /* PagingCellViewModel.swift in Sources */,
+				40C3E7C225F85C2000E80097 /* AnnouncementItem.swift in Sources */,
 				402C444E25D381F6004E7951 /* HandyJsonExtension.swift in Sources */,
 				4092171125EB99D100A8A78E /* ClickableTextView.swift in Sources */,
 				402C448A25D381F6004E7951 /* PagingViewControllerInfiniteDataSource.swift in Sources */,
@@ -1686,6 +1870,7 @@
 				402C447625D381F6004E7951 /* PagingContentInteraction.swift in Sources */,
 				402C446B25D381F6004E7951 /* PagingBorderView.swift in Sources */,
 				402C449125D381F6004E7951 /* PagingMenuDelegate.swift in Sources */,
+				40C3E7E925F8BEF300E80097 /* IconLabelView.swift in Sources */,
 				402C43DF25D381DF004E7951 /* TabBarViewController.swift in Sources */,
 				402C43E825D381DF004E7951 /* API.swift in Sources */,
 				4036941925EF67AA00320FC1 /* CompetitionCenterVM.swift in Sources */,
@@ -1704,6 +1889,7 @@
 				402C447725D381F6004E7951 /* PagingMenuHorizontalAlignment.swift in Sources */,
 				402C449325D381F6004E7951 /* JXPagingMainTableView.swift in Sources */,
 				402C43D525D381DE004E7951 /* TextViewWithPh.swift in Sources */,
+				40C3E7D025F85D2D00E80097 /* AnnouncementTableView.swift in Sources */,
 				402C447B25D381F6004E7951 /* PagingState.swift in Sources */,
 				402C43E025D381DF004E7951 /* MsgPushedView.swift in Sources */,
 				402C43D125D381DE004E7951 /* DataManager.swift in Sources */,
@@ -1733,6 +1919,7 @@
 				4036945225F0C7C900320FC1 /* CompetitionCollectionVM.swift in Sources */,
 				4036948625F115D300320FC1 /* ChangePwdVC.swift in Sources */,
 				4092170925EB993800A8A78E /* InputBackgroundView.swift in Sources */,
+				40C3E7BD25F85BD900E80097 /* AnnouncementTableVM.swift in Sources */,
 				402C43E625D381DF004E7951 /* ActivityIndicatorView.swift in Sources */,
 				402C447825D381F6004E7951 /* PagingIndicatorOptions.swift in Sources */,
 				403694ED25F2166800320FC1 /* KeyboardManager.swift in Sources */,
@@ -1741,8 +1928,10 @@
 				402C446825D381F6004E7951 /* PagingInvalidationContext.swift in Sources */,
 				402C433125D37D78004E7951 /* AppDelegate.swift in Sources */,
 				402C448B25D381F6004E7951 /* Tween.swift in Sources */,
+				4064E35525F7AD8500039948 /* BannerScrollViewCell.swift in Sources */,
 				402C448625D381F6004E7951 /* PagingTransition.swift in Sources */,
 				402C43D625D381DE004E7951 /* CycleScrollViewCell.swift in Sources */,
+				4064E36C25F7AE1400039948 /* BannerItemModel.swift in Sources */,
 				4036953125F332D500320FC1 /* ShareAppCell.swift in Sources */,
 				402C446625D381F6004E7951 /* PagingCell.swift in Sources */,
 				402C43EB25D381DF004E7951 /* Router.swift in Sources */,
@@ -1753,20 +1942,25 @@
 				402C445325D381F6004E7951 /* UIControlExtension.swift in Sources */,
 				402C43E425D381DF004E7951 /* AlertView.swift in Sources */,
 				402C446C25D381F6004E7951 /* PagingOptions.swift in Sources */,
+				40C3E7F125F8DB1200E80097 /* WebBrowser.swift in Sources */,
 				402C43D925D381DE004E7951 /* Gateway.swift in Sources */,
 				402C447225D381F6004E7951 /* PagingSelectedScrollPosition.swift in Sources */,
+				40C3E7FE25F8DB2B00E80097 /* WebBrowserVM.swift in Sources */,
 				403694A325F1174500320FC1 /* AccountAPI.swift in Sources */,
 				402C447E25D381F6004E7951 /* UIView+constraints.swift in Sources */,
 				40163E5925EE096C005ABBBC /* LoginWithPswVM.swift in Sources */,
 				402C449025D381F6004E7951 /* PagingViewControllerDataSource.swift in Sources */,
+				40C3E80825F8E08E00E80097 /* AnnouncementListVC.swift in Sources */,
 				402C446A25D381F6004E7951 /* PagingCollectionViewLayout.swift in Sources */,
 				402C445825D381F6004E7951 /* ImageVM.swift in Sources */,
 				402C448325D381F6004E7951 /* PagingItems.swift in Sources */,
+				4064E36425F7ADEF00039948 /* BannerViewModel.swift in Sources */,
 				4036947825F1109200320FC1 /* AccountInfoVC.swift in Sources */,
 				402C447C25D381F6004E7951 /* PagingMenuItemSource.swift in Sources */,
 				402C446325D381F6004E7951 /* EMPageViewController.swift in Sources */,
 				402C448F25D381F6004E7951 /* PagingViewControllerDelegate.swift in Sources */,
 				402C447F25D381F6004E7951 /* UIEdgeInsets.swift in Sources */,
+				40C3E7DF25F8B46200E80097 /* CompetitoinDetailVC.swift in Sources */,
 				402C448C25D381F6004E7951 /* PagingItem.swift in Sources */,
 				40163E6925EE1246005ABBBC /* College.swift in Sources */,
 				4036940F25EF5C2A00320FC1 /* CompetitionSelectionView.swift in Sources */,
@@ -1784,12 +1978,14 @@
 				402C445925D381F6004E7951 /* ImagePickerVC.swift in Sources */,
 				402C446925D381F6004E7951 /* PagingSizeCache.swift in Sources */,
 				402C449225D381F6004E7951 /* PagingLayout.swift in Sources */,
+				40C3E7C825F85D1B00E80097 /* AnnouncementTableViewCell.swift in Sources */,
 				402C43EA25D381DF004E7951 /* IErrorType.swift in Sources */,
 				40163E8825EE2272005ABBBC /* OrganizeTeamVC.swift in Sources */,
 				40163E6E25EE1278005ABBBC /* University.swift in Sources */,
 				402C446E25D381F6004E7951 /* PagingBorderLayoutAttributes.swift in Sources */,
 				40B69B3225DA8FE2000E5631 /* UIDeviceExtension.swift in Sources */,
 				402C43D025D381DE004E7951 /* LocationAdapter.swift in Sources */,
+				40C3E7DA25F8AB2C00E80097 /* CompetitionDetailModel.swift in Sources */,
 				403694AA25F1193D00320FC1 /* ChangeInfoVM.swift in Sources */,
 				402C447325D381F6004E7951 /* InvalidationState.swift in Sources */,
 				4036947D25F111F300320FC1 /* ChangeAvatarView.swift in Sources */,

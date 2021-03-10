@@ -11,18 +11,29 @@ import UIKit
 
 protocol CycleScrollViewDelegate {
     func cycleScrollView(_ cycleScrollView: CycleScrollView, cellForItemAt item: Int) -> CycleScrollViewCell
+    func cycleScrollView(_ cycleScrollView: CycleScrollView, didSelectItemAt item: Int)
+    func cycleScrollViewDidScroll(_ cycleScrollView: CycleScrollView)
 }
 protocol CycleScrollViewDataSource {
-    func numberOfItems(_ collectionView: UICollectionView) -> Int
+    func numberOfItems(_ collectionView: CycleScrollView) -> Int
 }
 
 class CycleScrollView: UIView {
     var delegate:CycleScrollViewDelegate?
     var dataSource:CycleScrollViewDataSource?
     
+    var time:Timer!
     
     let collectionView: UICollectionView
     
+    var page:Int {
+        return collectionView.horizontalPage
+    }
+    
+    
+    var contentOffset:CGPoint {
+        return collectionView.contentOffset
+    }
     
     override init(frame: CGRect) {
         let layout = UICollectionViewFlowLayout()
@@ -44,6 +55,25 @@ class CycleScrollView: UIView {
         makeConstraints()
     }
     
+    func autoScroll(){
+        if time == nil{
+            time = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(_autoScroll), userInfo: nil, repeats: true)
+        }
+
+    }
+    
+    @objc func _autoScroll(){
+        guard let count = self.dataSource?.numberOfItems(self) else {return}
+        
+        var current = collectionView.horizontalPage
+        if current == count - 1 {
+            current = 0
+        }else{
+            current += 1
+        }
+        collectionView.scrollToHorizontalPage(page: current)
+    }
+    
     func makeConstraints() {
         collectionView.snp.makeConstraints { (view) in
             view.top.equalToSuperview()
@@ -54,6 +84,7 @@ class CycleScrollView: UIView {
     }
     
     func reloadData(){
+        collectionView.contentOffset.x = 0
         collectionView.reloadData()
     }
     
@@ -71,13 +102,20 @@ class CycleScrollView: UIView {
     }
 }
 
-
 extension CycleScrollView:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = delegate?.cycleScrollView(self, cellForItemAt: indexPath.item){
             return cell
         }
         return CycleScrollViewCell.init()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.cycleScrollView(self, didSelectItemAt: indexPath.item)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        delegate?.cycleScrollViewDidScroll(self)
     }
 }
 
@@ -88,7 +126,7 @@ extension CycleScrollView:UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let count = dataSource?.numberOfItems(collectionView){
+        if let count = dataSource?.numberOfItems(self){
             return count
         }
         return 0

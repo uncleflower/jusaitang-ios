@@ -189,7 +189,7 @@ class UserCenterVC: BaseViewController {
         super.viewDidLoad()
         
         guard let user = DataManager.shared.user else {return}
-        avatarImg.setImage(url: apiHost + user.avatar)
+        avatarImg.setImage(url: imageHost + user.avatar)
         usernameLabel.text = "\(user.name) \(user.college.collegeName)"
         smallTitle.text = "\(user.period)级 \(user.userClassName)"
         

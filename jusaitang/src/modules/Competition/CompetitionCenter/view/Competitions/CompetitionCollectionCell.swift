@@ -97,7 +97,7 @@ class CompetitionCollectionCell: UICollectionViewCell {
     
     func bindViewModel(viewModel: CompetitionCollectionCellVM) {
         guard let model = viewModel.model else {return}
-        imageView.setImage(url: apiHost + model.imageURL)
+        imageView.setImage(url: imageHost + model.imageURL)
         competitionNameLabel.text = model.name
         
         var level: String = ""

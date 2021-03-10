@@ -10,11 +10,18 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-class CompetitionsView: UIView {
+class CompetitionsView: UITableViewCell {
     
     var viewModel: CompetitionsVM!
     
     var disposeBag = DisposeBag()
+    
+    let containerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.cornerRadius = 8
+        return view
+    }()
     
     let competitionSelectionsView: [CompetitionSelectionView] = {
         var views: [CompetitionSelectionView] = []
@@ -30,14 +37,15 @@ class CompetitionsView: UIView {
         return view
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.backgroundColor = .white
+        self.backgroundColor = UIColor(hexString: "#F7F7FB")
+        contentView.addSubview(containerView)
         for index in 0 ..< 4 {
-            addSubview(competitionSelectionsView[index])
+            containerView.addSubview(competitionSelectionsView[index])
         }
-        addSubview(competitionCollectionView)
+        containerView.addSubview(competitionCollectionView)
         
         makeConstraints()
     }
@@ -47,6 +55,14 @@ class CompetitionsView: UIView {
     }
     
     func makeConstraints() {
+        
+        containerView.snp.makeConstraints { (make) in
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-20)
+            make.leading.equalToSuperview().offset(15)
+            make.trailing.equalToSuperview().offset(-15)
+        }
+        
         let width = Int(App.screenWidth) - 30 - competitionSelectionsView.count * 60
         let space = width / (competitionSelectionsView.count + 1)
         let orgin = space

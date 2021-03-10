@@ -44,7 +44,6 @@ class TeamPagingViewController: BaseViewController {
         self.categoryView.listContainer = self.segmentedListContainerView
         
         self.navigationView.backgroundColor = .backgroundColor
-        self.navigationView.titleLabel.text = "组队"
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -60,14 +59,14 @@ class TeamPagingViewController: BaseViewController {
         super.loadView()
         
         self.view.backgroundColor = UIColor.backgroundColor
-        self.view.addSubview(categoryView)
+        self.navigationView.addSubview(categoryView)
         self.view.addSubview(self.segmentedListContainerView)
     }
     
     override func makeConstraints() {
         super.makeConstraints()
         self.categoryView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(App.naviStatusHeight)
+            make.top.equalToSuperview().offset(App.navigationBarHeight)
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(App.navigationBarHeight)
         }

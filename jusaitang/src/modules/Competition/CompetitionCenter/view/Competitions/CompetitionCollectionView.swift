@@ -71,6 +71,12 @@ extension CompetitionCollectionView: UICollectionViewDelegate {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let id = try? viewModel.competitionCollectionCellVMs.value()[indexPath.item].model.id else {return}
+        
+        Router.openCompetitionDetail(id: id)
+    }
 }
 
 extension CompetitionCollectionView: UICollectionViewDataSource {

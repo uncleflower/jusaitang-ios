@@ -109,7 +109,7 @@ class AvatarCell: UITableViewCell {
         self.viewModel = viewModel
         title.text = viewModel.title
         viewModel.infoObservable.subscribe(onNext: {[weak self] (text) in
-            self?.avatarView.setImage(url: apiHost + text)
+            self?.avatarView.setImage(url: imageHost + text)
         }).disposed(by: disposeBag)
     }
 }

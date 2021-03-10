@@ -7,7 +7,8 @@
 
 import UIKit
 
-let apiHost = "http://39.97.102.209:8999"
+let apiHost = "https://www.tracys.cn/jusaitang"
+let imageHost = "https://www.tracys.cn"
 //let apiHost = "http://192.168.43.73:8999/competition"
 
 @UIApplicationMain

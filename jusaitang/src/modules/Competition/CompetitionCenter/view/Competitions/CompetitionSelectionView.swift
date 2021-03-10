@@ -54,7 +54,7 @@ class CompetitionSelectionView: UIControl {
     func loadData(model: CompetitionSelectionModel) {
         self.model = model
         
-        imageView.setImage(url: apiHost + model.imageURL)
+        imageView.setImage(url: imageHost + model.imageURL)
         nameLabel.text = model.name
     }
 }
