@@ -103,30 +103,29 @@ class ShareAppView: UIView {
     }
     
     func share(scene: shareScene) {
-//        let webpageObject = WXWebpageObject()
-//        let share = ConfigCenter.shared.share
-//        guard let inviteUrl = DataManager.shared.user?.inviteUrl else {return}
-//        webpageObject.webpageUrl = inviteUrl
-//        let message = WXMediaMessage()
-//        message.title = share.title
-//        message.description = share.detail
-//        message.setThumbImage(UIImage(named: "AppIcon")!)
-//
-//        message.mediaObject = webpageObject
-//        let req = SendMessageToWXReq()
-//        req.bText = false
-//        req.message = message
-//        switch scene {
-//        case .wechat:
-//            req.scene = Int32(WXSceneSession.rawValue)
-//        case .moment:
-//            req.scene = Int32(WXSceneTimeline.rawValue)
-//        default:
-//            break
-//        }
-//        WXApi.send(req) { (_) in
-//            self.dimiss()
-//        }
+        let webpageObject = WXWebpageObject()
+        let share = ConfigCenter.shared.share
+        webpageObject.webpageUrl = "https://www.tracys.cn/"
+        let message = WXMediaMessage()
+        message.title = share.title
+        message.description = share.detail
+        message.setThumbImage(UIImage(named: "AppIcon")!)
+
+        message.mediaObject = webpageObject
+        let req = SendMessageToWXReq()
+        req.bText = false
+        req.message = message
+        switch scene {
+        case .wechat:
+            req.scene = Int32(WXSceneSession.rawValue)
+        case .moment:
+            req.scene = Int32(WXSceneTimeline.rawValue)
+        default:
+            break
+        }
+        WXApi.send(req) { (_) in
+            self.dimiss()
+        }
     }
     
     @objc func dimiss() {
@@ -146,14 +145,14 @@ extension ShareAppView: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        if WXApi.isWXAppInstalled() {
-//            let cell = collectionView.cellForItem(at: indexPath) as! ShareAppCell
-//            share(scene: cell.viewModel.scene)
-//        } else {
-//        let alert = SlightAlert(title: "你尚未安装微信，不可使用此功能")
-        let alert = SlightAlert(title: "功能正在开发中")
-        alert.show()
-//        }
+        if WXApi.isWXAppInstalled() {
+            let cell = collectionView.cellForItem(at: indexPath) as! ShareAppCell
+            share(scene: cell.viewModel.scene)
+        } else {
+            let alert = SlightAlert(title: "你尚未安装微信，不可使用此功能")
+        //        let alert = SlightAlert(title: "功能正在开发中")
+            alert.show()
+        }
     }
 }
 

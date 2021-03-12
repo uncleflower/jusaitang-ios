@@ -69,6 +69,7 @@ class DataManager: NSObject {
     func saveUser(user: User) {
         if let userString = user.toJSONString(){
             UserDefaults.standard.set(userString, forKey: DataManager.userKey)
+            userObservable.onNext(user)
         }
     }
     

@@ -36,7 +36,7 @@ class Router {
     
     // Competition Detail
     static func openCompetitionDetail(id: String) {
-        let vc = CompetitoinDetailVC(competitoinID: id)
+        let vc = CompetitionDetailVC(competitoinID: id)
         App.navigationController?.show(vc, sender: true)
     }
 }

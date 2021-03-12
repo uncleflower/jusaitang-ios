@@ -189,7 +189,9 @@ class UserCenterVC: BaseViewController {
         super.viewDidLoad()
         
         guard let user = DataManager.shared.user else {return}
-        avatarImg.setImage(url: imageHost + user.avatar)
+        DataManager.shared.userObservable.subscribe(onNext: {[weak self] user in
+            self?.avatarImg.setImage(url: imageHost + user!.avatar)
+        }).disposed(by: disposeBag)
         usernameLabel.text = "\(user.name) \(user.college.collegeName)"
         smallTitle.text = "\(user.period)级 \(user.userClassName)"
         

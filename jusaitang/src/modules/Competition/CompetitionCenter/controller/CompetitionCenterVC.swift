@@ -94,9 +94,21 @@ class CompetitionCenterVC: BaseViewController {
     
     override func bindViewModel() {
         super.bindViewModel()
+        
+        DataManager.shared.userObservable.subscribe(onNext: {[weak self] user in
+            self?.univercityLabel.text = user?.college.university.universityName
+        }).disposed(by: disposeBag)
     }
     
     @objc func headerRefresh() {
+        
+        viewModel.getUserData {(error) in
+            if let error = error {
+                ErrorAlertView.show(error: error, style: .topError)
+                return
+            }
+        }
+
         viewModel.competitionsVM.getCompetitionTypes {(error) in
             if let error = error {
                 ErrorAlertView.show(error: error, style: .topError)

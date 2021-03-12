@@ -174,8 +174,7 @@ class LoginWithPswVC: BaseViewController {
                 return
             }
             
-            self?.navigationController?.pushViewController(TabBarViewController(), animated: true)
-            self?.getUserData()
+            self?.goTabBarView()
         }
         if let error = error {
             if error.code == .sidEmpty {
@@ -186,16 +185,8 @@ class LoginWithPswVC: BaseViewController {
         }
     }
     
-    func getUserData() {
-        LoginAPI.getUserData(request: EmptyReq()) { (res, error) in
-            if let error = error {
-                ErrorAlertView.show(error: error, style: .topError)
-                return
-            }
-            
-            guard let res = res else {return}
-            DataManager.shared.saveUser(user: res.user)
-        }
+    func goTabBarView() {
+        self.navigationController?.pushViewController(TabBarViewController(), animated: true)
     }
 
 }

@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class CompetitoinDetailVC: BaseViewController {
+class CompetitionDetailVC: BaseViewController {
     
     private let disposeBag = DisposeBag()
     

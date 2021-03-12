@@ -14,6 +14,19 @@ class CompetitionCenterVM: NSObject {
     let compAnnouncementTableVM: AnnouncementTableVM = AnnouncementTableVM()
     let sysAnnouncementTableVM: AnnouncementTableVM = AnnouncementTableVM()
     
+    func getUserData(complete: @escaping(IError?) -> Void) {
+        LoginAPI.getUserData(request: EmptyReq()) { (res, error) in
+            if let error = error {
+                complete(error)
+                return
+            }
+            
+            guard let res = res else {return}
+            DataManager.shared.saveUser(user: res.user)
+            complete(nil)
+        }
+    }
+    
     func getBanner(complete: @escaping(IError?) -> Void) {
         CompetitionAPI.getBanner(request: EmptyReq()) {[weak self] (res, error) in
             if let error = error {

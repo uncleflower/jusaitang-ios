@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		20B497B92BB8BD2E43017F62 /* Pods_jusaitang_jusaitangUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0417A2C59FD6A650F65385 /* Pods_jusaitang_jusaitangUITests.framework */; };
+		4015E81525FB18BC0054206C /* ConfigCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4015E81425FB18BC0054206C /* ConfigCenter.swift */; };
 		40163E5925EE096C005ABBBC /* LoginWithPswVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40163E5825EE096C005ABBBC /* LoginWithPswVM.swift */; };
 		40163E6125EE10C7005ABBBC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40163E6025EE10C7005ABBBC /* User.swift */; };
 		40163E6925EE1246005ABBBC /* College.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40163E6825EE1246005ABBBC /* College.swift */; };
@@ -178,7 +179,7 @@
 		40C3E7C825F85D1B00E80097 /* AnnouncementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3E7C725F85D1B00E80097 /* AnnouncementTableViewCell.swift */; };
 		40C3E7D025F85D2D00E80097 /* AnnouncementTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3E7CF25F85D2D00E80097 /* AnnouncementTableView.swift */; };
 		40C3E7DA25F8AB2C00E80097 /* CompetitionDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3E7D925F8AB2C00E80097 /* CompetitionDetailModel.swift */; };
-		40C3E7DF25F8B46200E80097 /* CompetitoinDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3E7DE25F8B46200E80097 /* CompetitoinDetailVC.swift */; };
+		40C3E7DF25F8B46200E80097 /* CompetitionDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3E7DE25F8B46200E80097 /* CompetitionDetailVC.swift */; };
 		40C3E7E425F8B47900E80097 /* CompetitionDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3E7E325F8B47900E80097 /* CompetitionDetailVM.swift */; };
 		40C3E7E925F8BEF300E80097 /* IconLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3E7E825F8BEF300E80097 /* IconLabelView.swift */; };
 		40C3E7F125F8DB1200E80097 /* WebBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3E7F025F8DB1200E80097 /* WebBrowser.swift */; };
@@ -209,6 +210,8 @@
 /* Begin PBXFileReference section */
 		1404B00C887F885C24256845 /* Pods-jusaitang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jusaitang.debug.xcconfig"; path = "Target Support Files/Pods-jusaitang/Pods-jusaitang.debug.xcconfig"; sourceTree = "<group>"; };
 		194005AE20A4220592DD449B /* Pods_jusaitang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jusaitang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4015E7F825FB102C0054206C /* jusaitang-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "jusaitang-Bridging-Header.h"; sourceTree = "<group>"; };
+		4015E81425FB18BC0054206C /* ConfigCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigCenter.swift; sourceTree = "<group>"; };
 		40163E5825EE096C005ABBBC /* LoginWithPswVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithPswVM.swift; sourceTree = "<group>"; };
 		40163E6025EE10C7005ABBBC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		40163E6825EE1246005ABBBC /* College.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = College.swift; sourceTree = "<group>"; };
@@ -386,7 +389,7 @@
 		40C3E7C725F85D1B00E80097 /* AnnouncementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementTableViewCell.swift; sourceTree = "<group>"; };
 		40C3E7CF25F85D2D00E80097 /* AnnouncementTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementTableView.swift; sourceTree = "<group>"; };
 		40C3E7D925F8AB2C00E80097 /* CompetitionDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionDetailModel.swift; sourceTree = "<group>"; };
-		40C3E7DE25F8B46200E80097 /* CompetitoinDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitoinDetailVC.swift; sourceTree = "<group>"; };
+		40C3E7DE25F8B46200E80097 /* CompetitionDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionDetailVC.swift; sourceTree = "<group>"; };
 		40C3E7E325F8B47900E80097 /* CompetitionDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionDetailVM.swift; sourceTree = "<group>"; };
 		40C3E7E825F8BEF300E80097 /* IconLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconLabelView.swift; sourceTree = "<group>"; };
 		40C3E7F025F8DB1200E80097 /* WebBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBrowser.swift; sourceTree = "<group>"; };
@@ -681,6 +684,7 @@
 				402C433925D37D7D004E7951 /* Assets.xcassets */,
 				402C433E25D37D7D004E7951 /* Info.plist */,
 				402C433B25D37D7D004E7951 /* LaunchScreen.storyboard */,
+				4015E7F825FB102C0054206C /* jusaitang-Bridging-Header.h */,
 			);
 			path = jusaitang;
 			sourceTree = "<group>";
@@ -758,6 +762,7 @@
 				40163E6825EE1246005ABBBC /* College.swift */,
 				40163E6D25EE1278005ABBBC /* University.swift */,
 				403694F125F2177700320FC1 /* ImageInfoModel.swift */,
+				4015E81425FB18BC0054206C /* ConfigCenter.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1487,7 +1492,7 @@
 		40C3E7D825F8AB1B00E80097 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				40C3E7DE25F8B46200E80097 /* CompetitoinDetailVC.swift */,
+				40C3E7DE25F8B46200E80097 /* CompetitionDetailVC.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1820,6 +1825,7 @@
 			files = (
 				402C446125D381F6004E7951 /* PagingView.swift in Sources */,
 				402C449725D381F6004E7951 /* JXPagingListRefreshView.swift in Sources */,
+				4015E81525FB18BC0054206C /* ConfigCenter.swift in Sources */,
 				402C444B25D381F6004E7951 /* UIImageViewExtension.swift in Sources */,
 				402C445625D381F6004E7951 /* DateExtension.swift in Sources */,
 				4036949E25F116BB00320FC1 /* InputWithLine.swift in Sources */,
@@ -1960,7 +1966,7 @@
 				402C446325D381F6004E7951 /* EMPageViewController.swift in Sources */,
 				402C448F25D381F6004E7951 /* PagingViewControllerDelegate.swift in Sources */,
 				402C447F25D381F6004E7951 /* UIEdgeInsets.swift in Sources */,
-				40C3E7DF25F8B46200E80097 /* CompetitoinDetailVC.swift in Sources */,
+				40C3E7DF25F8B46200E80097 /* CompetitionDetailVC.swift in Sources */,
 				402C448C25D381F6004E7951 /* PagingItem.swift in Sources */,
 				40163E6925EE1246005ABBBC /* College.swift in Sources */,
 				4036940F25EF5C2A00320FC1 /* CompetitionSelectionView.swift in Sources */,
@@ -2168,8 +2174,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				NEW_SETTING = "";
+				NEW_SETTING1 = "";
 				PRODUCT_BUNDLE_IDENTIFIER = sicnu.jusaitang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "jusaitang/jusaitang-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2190,8 +2199,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				NEW_SETTING = "";
+				NEW_SETTING1 = "";
 				PRODUCT_BUNDLE_IDENTIFIER = sicnu.jusaitang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "jusaitang/jusaitang-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
