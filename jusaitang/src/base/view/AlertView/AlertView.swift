@@ -44,7 +44,7 @@ class AlertView: UIView {
         
     let subTitleView: UILabel = {
         let view = UILabel()
-        view.font = UIFont.pf_semibold(16)
+        view.font = UIFont.pf_semibold(14)
         view.textAlignment = .center
         view.numberOfLines = 0
         view.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
@@ -62,7 +62,7 @@ class AlertView: UIView {
         
     let subDetailView: UILabel = {
         let view = UILabel()
-        view.font = UIFont.pf_medium(16)
+        view.font = UIFont.pf_medium(12)
         view.textAlignment = .center
         view.numberOfLines = 0
         view.textColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
@@ -160,7 +160,7 @@ class AlertView: UIView {
             make.center.equalToSuperview()
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
-            make.height.lessThanOrEqualTo(350)
+            make.height.lessThanOrEqualTo(500)
         }
         
         var topView = self.containerView
@@ -180,7 +180,7 @@ class AlertView: UIView {
                 make.top.equalTo(topView.snp.bottom).offset(16)
                 make.leading.equalToSuperview().offset(16)
                 make.trailing.equalToSuperview().offset(-16)
-                make.height.lessThanOrEqualTo(70)
+                make.height.lessThanOrEqualTo(100)
             }
             topView = subTitleView
         }
@@ -190,7 +190,7 @@ class AlertView: UIView {
                 make.top.equalTo(topView.snp.bottom).offset(16)
                 make.leading.equalToSuperview().offset(16)
                 make.trailing.equalToSuperview().offset(-16)
-                make.height.lessThanOrEqualTo(70)
+                make.height.lessThanOrEqualTo(100)
             }
             topView = detailView
         }
@@ -200,7 +200,7 @@ class AlertView: UIView {
                 make.top.equalTo(topView.snp.bottom).offset(16)
                 make.leading.equalToSuperview().offset(16)
                 make.trailing.equalToSuperview().offset(-16)
-                make.height.lessThanOrEqualTo(70)
+                make.height.lessThanOrEqualTo(100)
             }
             topView = subDetailView
         }

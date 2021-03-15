@@ -23,6 +23,23 @@ class CompetitionDetailVC: BaseViewController {
         return btn
     }()
     
+//    let scrollView: BaseScrollView = {
+//        let view = BaseScrollView()
+//        view.backgroundColor = .clear
+//        view.alwaysBounceHorizontal = false
+//        view.alwaysBounceVertical = true
+//        view.canCancelContentTouches = true
+//        view.bounces = true
+//        view.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
+//        return view
+//    }()
+//
+//    let containerView: UIView = {
+//        let view = UIView()
+//        view.isUserInteractionEnabled = true
+//        return view
+//    }()
+    
     let competitoinNameLabel: UILabel = {
         let view = UILabel()
         view.font = UIFont.pf_medium(20)
@@ -49,6 +66,14 @@ class CompetitionDetailVC: BaseViewController {
         view.font = UIFont.pf_medium(12)
         view.numberOfLines = 0
         view.textColor = UIColor(hexString: "#666666")
+        return view
+    }()
+    
+    let competitionImageView: UIImageView = {
+        let view = UIImageView()
+        view.clipsToBounds = true
+        view.contentMode = .scaleAspectFill
+        view.cornerRadius = 5
         return view
     }()
     
@@ -112,10 +137,25 @@ class CompetitionDetailVC: BaseViewController {
     override func loadView() {
         super.loadView()
         
+//        self.view.addSubview(scrollView)
+//        self.scrollView.addSubview(containerView)
+//        self.containerView.addSubview(competitoinNameLabel)
+//        self.containerView.addSubview(organizerLabel)
+//        self.containerView.addSubview(statusLabel)
+//        self.containerView.addSubview(contentLabel)
+//        self.containerView.addSubview(competitionImageView)
+//        self.containerView.addSubview(deadlineView)
+//        self.containerView.addSubview(locationView)
+//        self.containerView.addSubview(maxPeopleView)
+//        self.containerView.addSubview(contactPeopleView)
+//        self.containerView.addSubview(contactInfomationView)
+//        self.containerView.addSubview(officialWebsiteView)
+//        self.containerView.addSubview(signUpButton)
         self.view.addSubview(competitoinNameLabel)
         self.view.addSubview(organizerLabel)
         self.view.addSubview(statusLabel)
         self.view.addSubview(contentLabel)
+        self.view.addSubview(competitionImageView)
         self.view.addSubview(deadlineView)
         self.view.addSubview(locationView)
         self.view.addSubview(maxPeopleView)
@@ -127,6 +167,18 @@ class CompetitionDetailVC: BaseViewController {
     
     override func makeConstraints() {
         super.makeConstraints()
+        
+//        scrollView.snp.makeConstraints { (make) in
+//            make.top.equalToSuperview()
+//            make.leading.equalToSuperview()
+//            make.trailing.equalToSuperview()
+//            make.bottom.equalToSuperview()
+//        }
+//
+//        containerView.snp.makeConstraints { (make) in
+//            make.leading.trailing.equalTo(view)
+//            make.top.bottom.equalTo(scrollView)
+//        }
         
         competitoinNameLabel.snp.makeConstraints { (make) in
             make.leading.equalToSuperview().offset(15)
@@ -155,10 +207,17 @@ class CompetitionDetailVC: BaseViewController {
             make.top.equalTo(organizerLabel.snp.bottom).offset(20)
         }
         
+        competitionImageView.snp.makeConstraints { (make) in
+            make.leading.equalToSuperview().offset(15)
+            make.trailing.equalToSuperview().offset(-15)
+            make.top.equalTo(contentLabel.snp.bottom).offset(10)
+            make.height.equalTo(180)
+        }
+        
         deadlineView.snp.makeConstraints { (make) in
             make.leading.equalToSuperview().offset(15)
             make.trailing.equalToSuperview().offset(-15)
-            make.top.equalTo(contentLabel.snp.bottom).offset(40)
+            make.top.equalTo(competitionImageView.snp.bottom).offset(40)
             make.height.equalTo(16)
         }
         
@@ -208,6 +267,7 @@ class CompetitionDetailVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationView.backgroundColor = .white
         self.navigationView.leftView = dismissButton
         self.navigationView.titleLabel.text = "比赛详情"
         
@@ -237,6 +297,7 @@ class CompetitionDetailVC: BaseViewController {
             statusLabel.text = "已结束"
         }
         contentLabel.text = model.content
+        competitionImageView.setImage(url: imageHost + model.imageURL)
         let date = Date(timeIntervalSince1970: TimeInterval(model.deadline)!)
         deadlineView.titleLabel.text = "截止时间: \(date.toString(dateFormat: "yyyy-MM-dd"))"
         locationView.titleLabel.text = "竞赛地点: \(model.address)"
@@ -260,12 +321,44 @@ class CompetitionDetailVC: BaseViewController {
         }
         if model.peopelSum == 1 {
             signUpButton.setTitle("立即报名", for: .normal)
+            signUpButton.addTarget(self, action: #selector(singleDoApply), for: .touchUpInside)
         } else {
             signUpButton.setTitle("创建队伍并报名", for: .normal)
+            signUpButton.addTarget(self, action: #selector(groupDoApply), for: .touchUpInside)
         }
+        
+        
     }
     
     @objc func popView() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func singleDoApply() {
+        let alert = AlertView(title: "报名", subTitle: "确定要报名\(viewModel.model.name)吗？")
+        let action1 = AlertAction(type: .none) {
+            alert.dismiss()
+        }
+        action1.title = "取消"
+        alert.addAction(alertAction: action1)
+        let action2 = AlertAction(type: .none) {[weak self] in
+            self?.viewModel.singleDoApply { (error) in
+                if let error = error {
+                    ErrorAlertView.show(error: error, style: .topError)
+                    return
+                }
+                
+                SlightAlert(title: "报名成功", image: "slight_alert_tick").show()
+                self?.popView()
+            }
+            alert.dismiss()
+        }
+        action2.title = "确定"
+        alert.addAction(alertAction: action2)
+        alert.show()
+    }
+    
+    @objc func groupDoApply() {
+        SlightAlert(title: "正在开发中").show()
     }
 }

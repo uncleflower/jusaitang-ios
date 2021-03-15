@@ -123,6 +123,47 @@ class AnnouncementTableView: UITableViewCell {
         let vc = AnnouncementListVC(type: type)
         App.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func showSystemAnnouncementDetail(id: String) {
+        viewModel.getSysAnnouncementDetail(id: id) { (model, error) in
+            if let error = error {
+                ErrorAlertView.show(error: error, style: .topError)
+                return
+            }
+            guard let model = model else {return}
+            let alert = AlertView(title: model.title, subDetail: model.content)
+            let action = AlertAction(type: .none) {
+                alert.dismiss()
+            }
+            action.title = "知道了"
+            alert.addAction(alertAction: action)
+            alert.show()
+        }
+    }
+    
+    func showCompetitionAnnouncementDetail(id: String) {
+        viewModel.getCompAnnouncementDetail(id: id) { (model, error) in
+            if let error = error {
+                ErrorAlertView.show(error: error, style: .topError)
+                return
+            }
+            guard let model = model else {return}
+            let alert = AlertView(title: model.fileName, subTitle: "确定要下载该文件吗")
+            let action1 = AlertAction(type: .none) {
+                alert.dismiss()
+            }
+            action1.title = "取消"
+            alert.addAction(alertAction: action1)
+            let action2 = AlertAction(type: .none) {
+                Router.openWebView(url: model.fileURL)
+                alert.dismiss()
+            }
+            action2.title = "确定"
+            alert.addAction(alertAction: action2)
+            alert.show()
+        }
+    }
+    
 }
 
 extension AnnouncementTableView: UITableViewDelegate {
@@ -137,6 +178,16 @@ extension AnnouncementTableView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 37
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let id = try? viewModel.announcementCellVMs.value()[indexPath.item].model.id else {return}
+        
+        if self.titleLabel.text == "获奖公告" {
+            showCompetitionAnnouncementDetail(id: id)
+        } else if self.titleLabel.text == "系统公告" {
+            showSystemAnnouncementDetail(id: id)
+        }
     }
 }
 

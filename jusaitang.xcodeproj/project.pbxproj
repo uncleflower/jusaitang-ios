@@ -16,6 +16,9 @@
 		40163E8825EE2272005ABBBC /* OrganizeTeamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40163E8725EE2272005ABBBC /* OrganizeTeamVC.swift */; };
 		40163E8D25EE2283005ABBBC /* CompetitionCenterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40163E8C25EE2283005ABBBC /* CompetitionCenterVC.swift */; };
 		40163E9825EE230A005ABBBC /* UserCenterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40163E9725EE230A005ABBBC /* UserCenterVC.swift */; };
+		40182C8725FD17AD00B77616 /* CompetitionAnnDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40182C8625FD17AD00B77616 /* CompetitionAnnDetailModel.swift */; };
+		40182C8C25FD17CC00B77616 /* SystemAnnDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40182C8B25FD17CC00B77616 /* SystemAnnDetailModel.swift */; };
+		40182C9125FD21D000B77616 /* AnnouncementVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40182C9025FD21D000B77616 /* AnnouncementVM.swift */; };
 		402C433125D37D78004E7951 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402C433025D37D78004E7951 /* AppDelegate.swift */; };
 		402C433525D37D78004E7951 /* LoginWithPswVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402C433425D37D78004E7951 /* LoginWithPswVC.swift */; };
 		402C433A25D37D7D004E7951 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 402C433925D37D7D004E7951 /* Assets.xcassets */; };
@@ -219,6 +222,9 @@
 		40163E8725EE2272005ABBBC /* OrganizeTeamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizeTeamVC.swift; sourceTree = "<group>"; };
 		40163E8C25EE2283005ABBBC /* CompetitionCenterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionCenterVC.swift; sourceTree = "<group>"; };
 		40163E9725EE230A005ABBBC /* UserCenterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCenterVC.swift; sourceTree = "<group>"; };
+		40182C8625FD17AD00B77616 /* CompetitionAnnDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionAnnDetailModel.swift; sourceTree = "<group>"; };
+		40182C8B25FD17CC00B77616 /* SystemAnnDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemAnnDetailModel.swift; sourceTree = "<group>"; };
+		40182C9025FD21D000B77616 /* AnnouncementVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementVM.swift; sourceTree = "<group>"; };
 		402C432D25D37D78004E7951 /* jusaitang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jusaitang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		402C433025D37D78004E7951 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		402C433425D37D78004E7951 /* LoginWithPswVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithPswVC.swift; sourceTree = "<group>"; };
@@ -583,6 +589,7 @@
 				4036945125F0C7C900320FC1 /* CompetitionCollectionVM.swift */,
 				4064E36325F7ADEF00039948 /* BannerViewModel.swift */,
 				40C3E7BC25F85BD900E80097 /* AnnouncementTableVM.swift */,
+				40182C9025FD21D000B77616 /* AnnouncementVM.swift */,
 			);
 			path = viewmodel;
 			sourceTree = "<group>";
@@ -1543,6 +1550,8 @@
 		40C3E80425F8E06200E80097 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				40182C8625FD17AD00B77616 /* CompetitionAnnDetailModel.swift */,
+				40182C8B25FD17CC00B77616 /* SystemAnnDetailModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1898,6 +1907,7 @@
 				40C3E7D025F85D2D00E80097 /* AnnouncementTableView.swift in Sources */,
 				402C447B25D381F6004E7951 /* PagingState.swift in Sources */,
 				402C43E025D381DF004E7951 /* MsgPushedView.swift in Sources */,
+				40182C8C25FD17CC00B77616 /* SystemAnnDetailModel.swift in Sources */,
 				402C43D125D381DE004E7951 /* DataManager.swift in Sources */,
 				40163E8D25EE2283005ABBBC /* CompetitionCenterVC.swift in Sources */,
 				402C43DB25D381DF004E7951 /* TableCellViewModel.swift in Sources */,
@@ -1931,6 +1941,7 @@
 				403694ED25F2166800320FC1 /* KeyboardManager.swift in Sources */,
 				402C449825D381F6004E7951 /* JXPagingListContainerView.swift in Sources */,
 				402C447125D381F6004E7951 /* PagingMenuItemSize.swift in Sources */,
+				40182C9125FD21D000B77616 /* AnnouncementVM.swift in Sources */,
 				402C446825D381F6004E7951 /* PagingInvalidationContext.swift in Sources */,
 				402C433125D37D78004E7951 /* AppDelegate.swift in Sources */,
 				402C448B25D381F6004E7951 /* Tween.swift in Sources */,
@@ -1986,6 +1997,7 @@
 				402C449225D381F6004E7951 /* PagingLayout.swift in Sources */,
 				40C3E7C825F85D1B00E80097 /* AnnouncementTableViewCell.swift in Sources */,
 				402C43EA25D381DF004E7951 /* IErrorType.swift in Sources */,
+				40182C8725FD17AD00B77616 /* CompetitionAnnDetailModel.swift in Sources */,
 				40163E8825EE2272005ABBBC /* OrganizeTeamVC.swift in Sources */,
 				40163E6E25EE1278005ABBBC /* University.swift in Sources */,
 				402C446E25D381F6004E7951 /* PagingBorderLayoutAttributes.swift in Sources */,

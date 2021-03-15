@@ -171,6 +171,64 @@ class CompetitionAPI: NSObject {
         request.post(completion)
     }
     
+    //MARK: 获得比赛通知详情
+    
+    class GetCompAnnouncementDetailReq: HandyJSON {
+        var id: String = ""
+        
+        func mapping(mapper: HelpingMapper) {
+            mapper <<<
+                self.id <-- "winNoticeId"
+        }
+        
+        required init() {
+        }
+    }
+    
+    class GetCompAnnouncementDetailRes: HandyJSON {
+        var files: [CompetitionAnnDetailModel] = []
+        
+        required init() {
+        }
+    }
+    
+    static func getCompAnnouncementDetail(request: GetCompAnnouncementDetailReq, completion: @escaping(GetCompAnnouncementDetailRes?,IError?) -> Void){
+        let request = APIRequest<GetCompAnnouncementDetailRes>(
+            path: "/win/findWinNoticeById",
+            request: request
+        )
+        request.post(completion)
+    }
+    
+    //MARK: 获得系统通知详情
+    
+    class GetSysAnnouncementDetailReq: HandyJSON {
+        var id: String = ""
+        
+        func mapping(mapper: HelpingMapper) {
+            mapper <<<
+                self.id <-- "systemNoticeId"
+        }
+        
+        required init() {
+        }
+    }
+    
+    class GetSysAnnouncementDetailRes: HandyJSON {
+        var notice: [SystemAnnDetailModel] = []
+        
+        required init() {
+        }
+    }
+    
+    static func getSysAnnouncementDetail(request: GetSysAnnouncementDetailReq, completion: @escaping(GetSysAnnouncementDetailRes?,IError?) -> Void){
+        let request = APIRequest<GetSysAnnouncementDetailRes>(
+            path: "/notice/findSystemNoticeById",
+            request: request
+        )
+        request.post(completion)
+    }
+    
     //MARK: 获得比赛详情
     
     class GetCompetitionDetailReq: HandyJSON {
@@ -197,6 +255,42 @@ class CompetitionAPI: NSObject {
     static func getCompetitionDetail(request: GetCompetitionDetailReq, completion: @escaping(GetCompetitionDetailRes?,IError?) -> Void){
         let request = APIRequest<GetCompetitionDetailRes>(
             path: "/competition/findCompetitionById",
+            request: request
+        )
+        request.post(completion)
+    }
+    
+    //MARK: 个人赛报名
+    
+    class SingleDoApplyReq: HandyJSON {
+        var competitionId: String = ""
+        
+        required init() {
+            
+        }
+    }
+    
+    static func singleDoApply(request: SingleDoApplyReq, completion: @escaping(EmptyRes?,IError?) -> Void){
+        let request = APIRequest<EmptyRes>(
+            path: "/apply/doApply",
+            request: request
+        )
+        request.post(completion)
+    }
+    
+    //MARK: 个人赛取消报名
+    
+    class SingleCancelApplyReq: HandyJSON {
+        var competitionId: String = ""
+        
+        required init() {
+            
+        }
+    }
+    
+    static func singleCancelApply(request: SingleCancelApplyReq, completion: @escaping(EmptyRes?,IError?) -> Void){
+        let request = APIRequest<EmptyRes>(
+            path: "/apply/cancelApply",
             request: request
         )
         request.post(completion)

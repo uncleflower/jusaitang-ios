@@ -33,4 +33,16 @@ class CompetitionDetailVM: NSObject {
             complete(nil)
         }
     }
+    
+    func singleDoApply(complete: @escaping(IError?) -> Void) {
+        let req = CompetitionAPI.SingleDoApplyReq()
+        req.competitionId = self.id
+        CompetitionAPI.singleDoApply(request: req) { (_, error) in
+            if let error = error {
+                complete(error)
+                return
+            }
+            complete(nil)
+        }
+    }
 }

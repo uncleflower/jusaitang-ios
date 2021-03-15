@@ -9,7 +9,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class AnnouncementListVM: NSObject {
+class AnnouncementListVM: AnnouncementVM {
     
     let announcementCellVMs: BehaviorSubject<[AnnouncementCellVM]> = BehaviorSubject.init(value: [])
     

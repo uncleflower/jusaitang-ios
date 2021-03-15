@@ -17,7 +17,7 @@ class AnnouncementCellVM: NSObject {
     }
 }
 
-class AnnouncementTableVM: NSObject {
+class AnnouncementTableVM: AnnouncementVM {
     let announcementCellVMs: BehaviorSubject<[AnnouncementCellVM]> = BehaviorSubject.init(value: [])
     
     let titleObservable: BehaviorSubject<String> = BehaviorSubject(value: "")
