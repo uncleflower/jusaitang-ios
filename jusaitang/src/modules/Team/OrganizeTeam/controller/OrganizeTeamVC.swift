@@ -14,6 +14,8 @@ class OrganizeTeamVC: BaseViewController {
     
     var tableView: UITableView!
     
+    var viewModel = OrganizeTeamVM()
+    
     private let disposeBag = DisposeBag()
     
     var listViewDidScrollCallback: ((UIScrollView) -> ())?

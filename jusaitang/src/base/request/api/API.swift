@@ -15,6 +15,11 @@ class BaseResponse<T>:HandyJSON{
     var code: Int = 0
     var data: T?
     
+    func mapping(mapper: HelpingMapper) {
+        mapper <<<
+            self.message <-- "msg"
+    }
+    
     required init() {
     }
 }

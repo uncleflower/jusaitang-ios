@@ -177,6 +177,8 @@
 		4092171125EB99D100A8A78E /* ClickableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4092171025EB99D100A8A78E /* ClickableTextView.swift */; };
 		40B69B2525DA86BC000E5631 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B69B2425DA86BC000E5631 /* LoginAPI.swift */; };
 		40B69B3225DA8FE2000E5631 /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B69B3125DA8FE2000E5631 /* UIDeviceExtension.swift */; };
+		40B7CDCE2600EDA400F67E23 /* OrganizeTeamVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B7CDCD2600EDA400F67E23 /* OrganizeTeamVM.swift */; };
+		40B7CDD62600EE0D00F67E23 /* OrganizeTeamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B7CDD52600EE0D00F67E23 /* OrganizeTeamModel.swift */; };
 		40C3E7BD25F85BD900E80097 /* AnnouncementTableVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3E7BC25F85BD900E80097 /* AnnouncementTableVM.swift */; };
 		40C3E7C225F85C2000E80097 /* AnnouncementItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3E7C125F85C2000E80097 /* AnnouncementItem.swift */; };
 		40C3E7C825F85D1B00E80097 /* AnnouncementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3E7C725F85D1B00E80097 /* AnnouncementTableViewCell.swift */; };
@@ -390,6 +392,8 @@
 		4092171025EB99D100A8A78E /* ClickableTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickableTextView.swift; sourceTree = "<group>"; };
 		40B69B2425DA86BC000E5631 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		40B69B3125DA8FE2000E5631 /* UIDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
+		40B7CDCD2600EDA400F67E23 /* OrganizeTeamVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizeTeamVM.swift; sourceTree = "<group>"; };
+		40B7CDD52600EE0D00F67E23 /* OrganizeTeamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizeTeamModel.swift; sourceTree = "<group>"; };
 		40C3E7BC25F85BD900E80097 /* AnnouncementTableVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementTableVM.swift; sourceTree = "<group>"; };
 		40C3E7C125F85C2000E80097 /* AnnouncementItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementItem.swift; sourceTree = "<group>"; };
 		40C3E7C725F85D1B00E80097 /* AnnouncementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementTableViewCell.swift; sourceTree = "<group>"; };
@@ -534,6 +538,7 @@
 		40163E7725EE2222005ABBBC /* model */ = {
 			isa = PBXGroup;
 			children = (
+				40B7CDD52600EE0D00F67E23 /* OrganizeTeamModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -548,6 +553,7 @@
 		40163E7925EE222C005ABBBC /* viewmodel */ = {
 			isa = PBXGroup;
 			children = (
+				40B7CDCD2600EDA400F67E23 /* OrganizeTeamVM.swift */,
 			);
 			path = viewmodel;
 			sourceTree = "<group>";
@@ -1932,6 +1938,7 @@
 				402C43D725D381DE004E7951 /* CycleScrollView.swift in Sources */,
 				402C43D825D381DE004E7951 /* RequestManager.swift in Sources */,
 				4036949925F1169B00320FC1 /* InputWithBar.swift in Sources */,
+				40B7CDD62600EE0D00F67E23 /* OrganizeTeamModel.swift in Sources */,
 				4036945225F0C7C900320FC1 /* CompetitionCollectionVM.swift in Sources */,
 				4036948625F115D300320FC1 /* ChangePwdVC.swift in Sources */,
 				4092170925EB993800A8A78E /* InputBackgroundView.swift in Sources */,
@@ -1940,6 +1947,7 @@
 				402C447825D381F6004E7951 /* PagingIndicatorOptions.swift in Sources */,
 				403694ED25F2166800320FC1 /* KeyboardManager.swift in Sources */,
 				402C449825D381F6004E7951 /* JXPagingListContainerView.swift in Sources */,
+				40B7CDCE2600EDA400F67E23 /* OrganizeTeamVM.swift in Sources */,
 				402C447125D381F6004E7951 /* PagingMenuItemSize.swift in Sources */,
 				40182C9125FD21D000B77616 /* AnnouncementVM.swift in Sources */,
 				402C446825D381F6004E7951 /* PagingInvalidationContext.swift in Sources */,
