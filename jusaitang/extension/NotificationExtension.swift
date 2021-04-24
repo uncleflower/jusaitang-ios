@@ -23,4 +23,7 @@ extension Notification.Name{
     static let wxDidLogedeIn = Notification.Name("wx.logedIn.notificaiton")
     /// 三方登录绑定用户信息
     static let bindNewbie = Notification.Name("wx.bindNewbie.notificaiton")
+    
+    /// 各种刷新页面
+    static let reloadView = Notification.Name("com.idethink.system.reloadView")
 }

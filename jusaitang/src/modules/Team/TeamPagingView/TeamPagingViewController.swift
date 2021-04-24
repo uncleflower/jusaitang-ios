@@ -100,7 +100,7 @@ extension TeamPagingViewController: JXPagingMainTableViewGestureDelegate {
 
 extension TeamPagingViewController: JXSegmentedListContainerViewDataSource {
     func numberOfLists(in listContainerView: JXSegmentedListContainerView) -> Int {
-        return 5
+        return 3
     }
     
     func listContainerView(_ listContainerView: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {
@@ -108,7 +108,7 @@ extension TeamPagingViewController: JXSegmentedListContainerViewDataSource {
             return OrganizeTeamVC()
         } else if index == 1 {
             return MyTeamViewController()
-        } else  {
+        } else {
             return TeamApplyViewController()
         }
     }

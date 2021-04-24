@@ -173,6 +173,16 @@
 		4064E36C25F7AE1400039948 /* BannerItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4064E36B25F7AE1400039948 /* BannerItemModel.swift */; };
 		4064E37125F7AE7B00039948 /* BannerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4064E37025F7AE7B00039948 /* BannerViewCell.swift */; };
 		4064E37625F7AF6B00039948 /* UIScrollviewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4064E37525F7AF6B00039948 /* UIScrollviewExtension.swift */; };
+		406C34C5263303CA00271148 /* OrganizeTeamEnrollButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406C34C4263303CA00271148 /* OrganizeTeamEnrollButton.swift */; };
+		40769A232633BF1C003FAE8E /* MyTeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40769A222633BF1C003FAE8E /* MyTeamCell.swift */; };
+		40769A282633C7FA003FAE8E /* TeamApplyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40769A272633C7FA003FAE8E /* TeamApplyCell.swift */; };
+		40769A2D2633D881003FAE8E /* TeamApplyButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40769A2C2633D881003FAE8E /* TeamApplyButtonsView.swift */; };
+		40769A3526343522003FAE8E /* HandleMyTeamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40769A3426343522003FAE8E /* HandleMyTeamVC.swift */; };
+		40769A3D26343598003FAE8E /* HandleMyTeamHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40769A3C26343598003FAE8E /* HandleMyTeamHeaderView.swift */; };
+		40769A42263436FA003FAE8E /* HandleMyTeamListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40769A41263436FA003FAE8E /* HandleMyTeamListView.swift */; };
+		40769A472634373A003FAE8E /* HandleMyTeamListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40769A462634373A003FAE8E /* HandleMyTeamListCell.swift */; };
+		407829EE2632FE3A0062A076 /* OrganizeTeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407829ED2632FE3A0062A076 /* OrganizeTeamCell.swift */; };
+		407B333F26102E4600FC9740 /* TextAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407B333E26102E4600FC9740 /* TextAlertView.swift */; };
 		4092170925EB993800A8A78E /* InputBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4092170825EB993800A8A78E /* InputBackgroundView.swift */; };
 		4092171125EB99D100A8A78E /* ClickableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4092171025EB99D100A8A78E /* ClickableTextView.swift */; };
 		40B69B2525DA86BC000E5631 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B69B2425DA86BC000E5631 /* LoginAPI.swift */; };
@@ -388,6 +398,16 @@
 		4064E36B25F7AE1400039948 /* BannerItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerItemModel.swift; sourceTree = "<group>"; };
 		4064E37025F7AE7B00039948 /* BannerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewCell.swift; sourceTree = "<group>"; };
 		4064E37525F7AF6B00039948 /* UIScrollviewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollviewExtension.swift; sourceTree = "<group>"; };
+		406C34C4263303CA00271148 /* OrganizeTeamEnrollButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizeTeamEnrollButton.swift; sourceTree = "<group>"; };
+		40769A222633BF1C003FAE8E /* MyTeamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTeamCell.swift; sourceTree = "<group>"; };
+		40769A272633C7FA003FAE8E /* TeamApplyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamApplyCell.swift; sourceTree = "<group>"; };
+		40769A2C2633D881003FAE8E /* TeamApplyButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamApplyButtonsView.swift; sourceTree = "<group>"; };
+		40769A3426343522003FAE8E /* HandleMyTeamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleMyTeamVC.swift; sourceTree = "<group>"; };
+		40769A3C26343598003FAE8E /* HandleMyTeamHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleMyTeamHeaderView.swift; sourceTree = "<group>"; };
+		40769A41263436FA003FAE8E /* HandleMyTeamListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleMyTeamListView.swift; sourceTree = "<group>"; };
+		40769A462634373A003FAE8E /* HandleMyTeamListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleMyTeamListCell.swift; sourceTree = "<group>"; };
+		407829ED2632FE3A0062A076 /* OrganizeTeamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizeTeamCell.swift; sourceTree = "<group>"; };
+		407B333E26102E4600FC9740 /* TextAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAlertView.swift; sourceTree = "<group>"; };
 		4092170825EB993800A8A78E /* InputBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputBackgroundView.swift; sourceTree = "<group>"; };
 		4092171025EB99D100A8A78E /* ClickableTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickableTextView.swift; sourceTree = "<group>"; };
 		40B69B2425DA86BC000E5631 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
@@ -546,6 +566,8 @@
 		40163E7825EE2226005ABBBC /* view */ = {
 			isa = PBXGroup;
 			children = (
+				407829ED2632FE3A0062A076 /* OrganizeTeamCell.swift */,
+				406C34C4263303CA00271148 /* OrganizeTeamEnrollButton.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -958,6 +980,7 @@
 				402C43C425D381DE004E7951 /* AlertView.swift */,
 				402C43C525D381DE004E7951 /* ErrorAlertView.swift */,
 				403694B925F119E300320FC1 /* SlightAlert.swift */,
+				407B333E26102E4600FC9740 /* TextAlertView.swift */,
 			);
 			path = AlertView;
 			sourceTree = "<group>";
@@ -1353,6 +1376,7 @@
 		403694FD25F2212000320FC1 /* MyTeam */ = {
 			isa = PBXGroup;
 			children = (
+				40769A312633E595003FAE8E /* HandleMyTeam */,
 				4036950125F221B900320FC1 /* controller */,
 				4036950025F221B900320FC1 /* viewmodel */,
 				4036950225F221B900320FC1 /* view */,
@@ -1397,6 +1421,7 @@
 		4036950225F221B900320FC1 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				40769A222633BF1C003FAE8E /* MyTeamCell.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1404,6 +1429,8 @@
 		4036950325F221C400320FC1 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				40769A272633C7FA003FAE8E /* TeamApplyCell.swift */,
+				40769A2C2633D881003FAE8E /* TeamApplyButtonsView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1448,6 +1475,33 @@
 				4064E37025F7AE7B00039948 /* BannerViewCell.swift */,
 			);
 			path = Banner;
+			sourceTree = "<group>";
+		};
+		40769A312633E595003FAE8E /* HandleMyTeam */ = {
+			isa = PBXGroup;
+			children = (
+				40769A32263434E6003FAE8E /* controller */,
+				40769A33263434FC003FAE8E /* view */,
+			);
+			path = HandleMyTeam;
+			sourceTree = "<group>";
+		};
+		40769A32263434E6003FAE8E /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				40769A3426343522003FAE8E /* HandleMyTeamVC.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		40769A33263434FC003FAE8E /* view */ = {
+			isa = PBXGroup;
+			children = (
+				40769A3C26343598003FAE8E /* HandleMyTeamHeaderView.swift */,
+				40769A41263436FA003FAE8E /* HandleMyTeamListView.swift */,
+				40769A462634373A003FAE8E /* HandleMyTeamListCell.swift */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		4092170725EB992300A8A78E /* InputBackgroundView */ = {
@@ -1853,6 +1907,7 @@
 				403694C125F11F8400320FC1 /* AboutUsVC.swift in Sources */,
 				4036945C25F10B9100320FC1 /* MyHeadSelectionView.swift in Sources */,
 				402C43E725D381DF004E7951 /* BaseView.swift in Sources */,
+				40769A2D2633D881003FAE8E /* TeamApplyButtonsView.swift in Sources */,
 				40C3E7E425F8B47900E80097 /* CompetitionDetailVM.swift in Sources */,
 				402C449425D381F6004E7951 /* JXPagingSmoothView.swift in Sources */,
 				402C445525D381F6004E7951 /* UIImageExtension.swift in Sources */,
@@ -1888,6 +1943,7 @@
 				402C448A25D381F6004E7951 /* PagingViewControllerInfiniteDataSource.swift in Sources */,
 				402C445025D381F6004E7951 /* BaseExtension.swift in Sources */,
 				402C448825D381F6004E7951 /* PageView.swift in Sources */,
+				40769A3526343522003FAE8E /* HandleMyTeamVC.swift in Sources */,
 				402C447625D381F6004E7951 /* PagingContentInteraction.swift in Sources */,
 				402C446B25D381F6004E7951 /* PagingBorderView.swift in Sources */,
 				402C449125D381F6004E7951 /* PagingMenuDelegate.swift in Sources */,
@@ -1901,10 +1957,12 @@
 				4036946E25F1100500320FC1 /* AvatarCell.swift in Sources */,
 				402C444C25D381F6004E7951 /* UIColorExtension.swift in Sources */,
 				4036944825F0C72700320FC1 /* CompetitionCollectionView.swift in Sources */,
+				40769A472634373A003FAE8E /* HandleMyTeamListCell.swift in Sources */,
 				402C446025D381F6004E7951 /* PagingIndicatorView.swift in Sources */,
 				402C445225D381F6004E7951 /* StringExtension.swift in Sources */,
 				4036942825EFCA0000320FC1 /* MySelectionView.swift in Sources */,
 				4036940A25EF5C0F00320FC1 /* CompetitionsView.swift in Sources */,
+				40769A282633C7FA003FAE8E /* TeamApplyCell.swift in Sources */,
 				402C444D25D381F6004E7951 /* NotificationExtension.swift in Sources */,
 				403694BA25F119E300320FC1 /* SlightAlert.swift in Sources */,
 				402C447725D381F6004E7951 /* PagingMenuHorizontalAlignment.swift in Sources */,
@@ -1932,10 +1990,12 @@
 				402C448225D381F6004E7951 /* PagingDiff.swift in Sources */,
 				402C449525D381F6004E7951 /* JXPagingViewRTLLayout.swift in Sources */,
 				402C446525D381F6004E7951 /* PagingController.swift in Sources */,
+				407B333F26102E4600FC9740 /* TextAlertView.swift in Sources */,
 				403694E025F214AC00320FC1 /* FeedbackVC.swift in Sources */,
 				4036947325F1102D00320FC1 /* AccountInfoCell.swift in Sources */,
 				403694E525F2161300320FC1 /* SelectAlbumCell.swift in Sources */,
 				402C43D725D381DE004E7951 /* CycleScrollView.swift in Sources */,
+				406C34C5263303CA00271148 /* OrganizeTeamEnrollButton.swift in Sources */,
 				402C43D825D381DE004E7951 /* RequestManager.swift in Sources */,
 				4036949925F1169B00320FC1 /* InputWithBar.swift in Sources */,
 				40B7CDD62600EE0D00F67E23 /* OrganizeTeamModel.swift in Sources */,
@@ -1967,6 +2027,7 @@
 				402C445325D381F6004E7951 /* UIControlExtension.swift in Sources */,
 				402C43E425D381DF004E7951 /* AlertView.swift in Sources */,
 				402C446C25D381F6004E7951 /* PagingOptions.swift in Sources */,
+				40769A232633BF1C003FAE8E /* MyTeamCell.swift in Sources */,
 				40C3E7F125F8DB1200E80097 /* WebBrowser.swift in Sources */,
 				402C43D925D381DE004E7951 /* Gateway.swift in Sources */,
 				402C447225D381F6004E7951 /* PagingSelectedScrollPosition.swift in Sources */,
@@ -1978,6 +2039,7 @@
 				40C3E80825F8E08E00E80097 /* AnnouncementListVC.swift in Sources */,
 				402C446A25D381F6004E7951 /* PagingCollectionViewLayout.swift in Sources */,
 				402C445825D381F6004E7951 /* ImageVM.swift in Sources */,
+				407829EE2632FE3A0062A076 /* OrganizeTeamCell.swift in Sources */,
 				402C448325D381F6004E7951 /* PagingItems.swift in Sources */,
 				4064E36425F7ADEF00039948 /* BannerViewModel.swift in Sources */,
 				4036947825F1109200320FC1 /* AccountInfoVC.swift in Sources */,
@@ -1992,9 +2054,11 @@
 				402C448D25D381F6004E7951 /* CollectionView.swift in Sources */,
 				402C445F25D381F6004E7951 /* PagingTitleCell.swift in Sources */,
 				402C447425D381F6004E7951 /* PagingMenuTransition.swift in Sources */,
+				40769A3D26343598003FAE8E /* HandleMyTeamHeaderView.swift in Sources */,
 				402C446725D381F6004E7951 /* PagingStaticDataSource.swift in Sources */,
 				402C448725D381F6004E7951 /* PagingIndexItem.swift in Sources */,
 				402C446425D381F6004E7951 /* PagingIndicatorLayoutAttributes.swift in Sources */,
+				40769A42263436FA003FAE8E /* HandleMyTeamListView.swift in Sources */,
 				402C43E525D381DF004E7951 /* ErrorAlertView.swift in Sources */,
 				402C43E225D381DF004E7951 /* BaseScrollView.swift in Sources */,
 				4036941E25EF67E200320FC1 /* CompetitionsVM.swift in Sources */,

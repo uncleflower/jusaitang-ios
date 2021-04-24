@@ -343,8 +343,8 @@ class CompetitionDetailVC: BaseViewController {
         alert.addAction(alertAction: action1)
         let action2 = AlertAction(type: .none) {[weak self] in
             self?.viewModel.singleDoApply { (error) in
-                if let error = error {
-                    ErrorAlertView.show(error: error, style: .topError)
+                if error != nil {
+                    SlightAlert(title: "请勿重复报名").show()
                     return
                 }
                 
@@ -359,6 +359,21 @@ class CompetitionDetailVC: BaseViewController {
     }
     
     @objc func groupDoApply() {
-        SlightAlert(title: "正在开发中").show()
+        guard let user = DataManager.shared.user else {return}
+        let alert = TextAlertView(title: "确定要创建\(user.name)的\(viewModel.model.name)队伍")
+        let action1 = AlertAction(type: .none) {
+            alert.dismiss()
+        }
+        action1.title = "取消"
+        alert.addAction(alertAction: action1)
+        let action2 = AlertAction(type: .none) {
+            SlightAlert(title: "创建并报名成功", image: "slight_alert_tick").show()
+            self.popView()
+
+            alert.dismiss()
+        }
+        action2.title = "确定"
+        alert.addAction(alertAction: action2)
+        alert.show()
     }
 }

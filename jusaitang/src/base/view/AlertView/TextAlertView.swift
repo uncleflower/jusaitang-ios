@@ -1,37 +1,13 @@
 //
-//  AlertView.swift
-//  an-xin-bang
+//  TextAlertView.swift
+//  jusaitang
 //
-//  Created by Duona Zhou on 7/18/20.
-//  Copyright © 2020 IdeThink Inc. All rights reserved.
+//  Created by Jiehao Zhang on 2021/3/28.
 //
 
 import UIKit
 
-enum AlertActionType{
-    case none;
-    case done;
-    case error;
-    case cancel;
-}
-
-class AlertAction: NSObject{
-    
-    var type:AlertActionType = .none
-    
-    var complete: (() -> Void)?
-    
-    var title: String?
-    
-    init(type: AlertActionType, complete: (() -> ())? = nil) {
-        self.type = type
-        self.complete = complete
-        super.init()
-    }
-    
-}
-
-class AlertView: UIView {
+class TextAlertView: UIView {
         
     let titleView: UILabel = {
         let view = UILabel()
@@ -41,31 +17,15 @@ class AlertView: UIView {
         view.textColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
         return view
     }()
-        
-    let subTitleView: UILabel = {
-        let view = UILabel()
-        view.font = UIFont.pf_semibold(14)
-        view.textAlignment = .center
-        view.numberOfLines = 0
-        view.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-        return view
-    }()
-        
-    let detailView: UILabel = {
-        let view = UILabel()
-        view.font = UIFont.pf_medium(16)
-        view.textAlignment = .center
-        view.numberOfLines = 0
+    
+    let describtionView: TextViewWithPh = {
+        let view = TextViewWithPh()
+        view.placeholder = "请输入队伍描述..."
+        view.placeholderColor = UIColor(hexString: "#C0C0C0")
+        view.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10)
+        view.backgroundColor = .white
+        view.font = UIFont.pf_medium(14)
         view.textColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
-        return view
-    }()
-        
-    let subDetailView: UILabel = {
-        let view = UILabel()
-        view.font = UIFont.pf_medium(12)
-        view.textAlignment = .center
-        view.numberOfLines = 0
-        view.textColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
         return view
     }()
         
@@ -84,21 +44,12 @@ class AlertView: UIView {
     
     let title: String?
     
-    let subTitle:String?
-    
-    let detail:String?
-    
-    let subDetail:String?
-    
     var alertActions: [AlertAction] = []
     
     var buttons: [UIButton] = []
     
-    init(title: String? = nil, subTitle: String? = nil, detail:String? = nil ,subDetail: String? = nil) {
+    init(title: String? = nil) {
         self.title = title
-        self.detail = detail
-        self.subTitle = subTitle
-        self.subDetail = subDetail
         
         super.init(frame: CGRect(x: 0, y: 0, width: App.screenWidth, height: App.screenHeight))
         loadView()
@@ -146,9 +97,15 @@ class AlertView: UIView {
         addSubview(containerView)
         
         containerView.addSubview(titleView)
-        containerView.addSubview(subTitleView)
-        containerView.addSubview(detailView)
-        containerView.addSubview(subDetailView)
+        containerView.addSubview(describtionView)
+        
+        KeyboardManager.shared.didAppear = {
+            let hideTap = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
+            self.addGestureRecognizer(hideTap)
+        }
+        KeyboardManager.shared.didDisappear = {
+            self.removeGestureRecognizers()
+        }
     }
     
     func makeConstraints(){
@@ -175,36 +132,13 @@ class AlertView: UIView {
             topView = titleView
 //        }
         
-        if subTitle != nil {
-            subTitleView.snp.remakeConstraints { make in
-                make.top.equalTo(topView.snp.bottom).offset(16)
-                make.leading.equalToSuperview().offset(16)
-                make.trailing.equalToSuperview().offset(-16)
-                make.height.lessThanOrEqualTo(100)
-            }
-            topView = subTitleView
+        describtionView.snp.makeConstraints { (make) in
+            make.top.equalTo(topView.snp.bottom).offset(16)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.height.equalTo(100)
         }
-        
-        if detail != nil{
-            detailView.snp.remakeConstraints { make in
-                make.top.equalTo(topView.snp.bottom).offset(16)
-                make.leading.equalToSuperview().offset(16)
-                make.trailing.equalToSuperview().offset(-16)
-                make.height.lessThanOrEqualTo(100)
-            }
-            topView = detailView
-        }
-        
-        if subDetail != nil{
-            subDetailView.snp.remakeConstraints { make in
-                make.top.equalTo(topView.snp.bottom).offset(16)
-                make.leading.equalToSuperview().offset(16)
-                make.trailing.equalToSuperview().offset(-16)
-                make.height.lessThanOrEqualTo(100)
-            }
-            topView = subDetailView
-        }
-        
+        topView = describtionView
         
         let buttonWidth = buttons.count == 1 ? 311 : 150
         let buttonHeight:CGFloat = 44
@@ -237,15 +171,6 @@ class AlertView: UIView {
         if let title = title {
             titleView.text = title
         }
-        if let subTitle = subTitle {
-            subTitleView.text = subTitle
-        }
-        if let detail = detail {
-            detailView.text = detail
-        }
-        if let subDetail = subDetail {
-            subDetailView.text = subDetail
-        }
     }
     
     func show(){
@@ -275,5 +200,9 @@ class AlertView: UIView {
         
         
         UIView.animate(withDuration: 0.35, animations: animations, completion: completion)
+    }
+    
+    @objc func hideKeyboard() {
+        self.endEditing(true)
     }
 }

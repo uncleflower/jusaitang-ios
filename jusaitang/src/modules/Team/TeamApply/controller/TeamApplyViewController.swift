@@ -24,9 +24,9 @@ class TeamApplyViewController: BaseViewController {
         tableView.backgroundColor = UIColor.backgroundColor
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
+        tableView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: App.tabBarHeight * 3 + App.safeAreaBottom + 10, right: 0)
         tableView.separatorStyle = .none
-//        tableView.register(OrderCell.self, forCellReuseIdentifier: "OrderCell")
+        tableView.register(TeamApplyCell.self, forCellReuseIdentifier: "TeamApplyCell")
         view.addSubview(tableView)
     }
     
@@ -44,17 +44,29 @@ class TeamApplyViewController: BaseViewController {
 
 extension TeamApplyViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 10
+        return 200
     }
 }
 
 extension TeamApplyViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TeamApplyCell", for: indexPath) as! TeamApplyCell
+        
+        if indexPath.row == 0 || indexPath.row == 1 {
+            cell.reloadData(nikename: "测试用户", time: "4天前", textContent: "申请加入你的“华迪杯竞赛”队伍", status: .othersApply)
+        } else if indexPath.row == 2 {
+            cell.reloadData(nikename: "张三", time: "3天前", textContent: "申请加入“ACM竞赛”队伍", status: .agreed)
+        } else if indexPath.row == 3 {
+            cell.reloadData(nikename: "李四", time: "5天前", textContent: "申请加入“互联网+竞赛”队伍", status: .refused)
+        } else if indexPath.row == 4 {
+            cell.reloadData(nikename: "王五", time: "10天前", textContent: "申请加入“数学建模竞赛”队伍", status: .underReview)
+        }
+        
+        cell.selectionStyle = .none
         cell.backgroundColor = UIColor.backgroundColor
         return cell
     }
