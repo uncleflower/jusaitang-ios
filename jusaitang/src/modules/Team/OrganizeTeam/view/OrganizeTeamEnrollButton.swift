@@ -198,7 +198,7 @@ class OrganizeTeamEnrollButton: UIView {
         action1.title = "返回"
         let action2 = AlertAction(type: .none) { [weak self] in
             NotificationCenter.default.post(name: .reloadView, object: nil)
-            self?.curEnrollCount = 2
+            self?.curEnrollCount = 1
             
             self?.changeStatusToUnEnroll()
             

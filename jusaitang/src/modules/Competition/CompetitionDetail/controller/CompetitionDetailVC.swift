@@ -366,10 +366,16 @@ class CompetitionDetailVC: BaseViewController {
         }
         action1.title = "取消"
         alert.addAction(alertAction: action1)
-        let action2 = AlertAction(type: .none) {
-            SlightAlert(title: "创建并报名成功", image: "slight_alert_tick").show()
-            self.popView()
-
+        let action2 = AlertAction(type: .none) {[weak self] in
+            let teamContent = DataManager.shared.textAlertViewText
+            self?.viewModel.teamUpDoApply(teamContent: teamContent, complete: { error in
+                if error != nil {
+                    SlightAlert(title: "请勿重复报名").show()
+                    return
+                }
+                SlightAlert(title: "创建并报名成功", image: "slight_alert_tick").show()
+                self?.popView()
+            })
             alert.dismiss()
         }
         action2.title = "确定"

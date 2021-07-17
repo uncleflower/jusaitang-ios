@@ -45,4 +45,22 @@ class CompetitionDetailVM: NSObject {
             complete(nil)
         }
     }
+    
+    func teamUpDoApply(teamContent: String, complete: @escaping(IError?) -> Void) {
+        let req = CompetitionAPI.TeamUpReq()
+        let competition = Competition()
+        let user = DataManager.shared.user
+        competition.id = self.id
+        req.competition = competition
+        req.teamContent = teamContent
+        req.teamName = "\(user?.name ?? "XXX")的队伍"
+        CompetitionAPI.TeamUp(request: req) { _, error in
+            if let error = error {
+                complete(error)
+                return
+            }
+            complete(nil)
+        }
+        
+    }
 }

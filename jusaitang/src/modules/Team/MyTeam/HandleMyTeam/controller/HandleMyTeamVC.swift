@@ -10,6 +10,8 @@ import MJRefresh
 
 class HandleMyTeamVC: BaseViewController {
     
+    var viewModel: HandleMyTeamViewModel!
+    
     let dismissButon: UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(named: "dismiss_arrow"), for: .normal)
@@ -77,6 +79,15 @@ class HandleMyTeamVC: BaseViewController {
         return view
     }()
     
+    init(teamID: String) {
+        super.init(nibName: nil, bundle: nil)
+        self.viewModel = HandleMyTeamViewModel(teamID: teamID)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
         super.loadView()
         
@@ -87,7 +98,6 @@ class HandleMyTeamVC: BaseViewController {
         containerView.addSubview(listTitle)
         containerView.addSubview(reportCenterListView)
         containerView.addSubview(submitButton)
-        
     }
     
     override func makeConstraints() {
@@ -127,7 +137,7 @@ class HandleMyTeamVC: BaseViewController {
             make.top.equalTo(listTitle.snp.bottom).offset(8)
             make.leading.equalToSuperview().offset(15)
             make.trailing.equalToSuperview().offset(-15)
-            make.height.equalTo(288)
+            make.height.equalTo(45)
         }
         
         submitButton.snp.makeConstraints { (make) in
@@ -141,6 +151,9 @@ class HandleMyTeamVC: BaseViewController {
     
     override func bindViewModel() {
         super.bindViewModel()
+        
+        self.headerView.bindViewModel(viewModel: self.viewModel)
+        self.reportCenterListView.bindViewModel(viewModel: self.viewModel)
     }
     
     override func viewDidLoad() {
@@ -153,17 +166,34 @@ class HandleMyTeamVC: BaseViewController {
         disbandTeamButton.addTarget(self, action: #selector(disbandTeam), for: .touchUpInside)
         dismissButon.addTarget(self, action: #selector(popView), for: .touchUpInside)
         submitButton.addTarget(self, action: #selector(addReport), for: .touchUpInside)
+        
+        viewModel.getTeamDetail { error in
+            if let error = error {
+                ErrorAlertView.show(error: error)
+                return
+            }
+        }
     }
     
     @objc func disbandTeam() {
-        let alert = AlertView(title: "确定吗", detail: "确定要解散“天梯赛”队伍吗？")
+        let alert = AlertView(title: "确定吗", detail: "确定要解散“数学建模大赛”队伍吗？")
         let action1 = AlertAction(type: .none) {
             alert.dismiss()
         }
         action1.title = "取消"
         alert.addAction(alertAction: action1)
         
-        let action2 = AlertAction(type: .none) {
+        let action2 = AlertAction(type: .none) {[weak self] in
+            let req = TeamAPI.DeleteTeamReq()
+            req.teamId = (self?.viewModel.teamID)!
+            TeamAPI.deleteTeam(request: req) { _, error in
+                if let error = error {
+                    ErrorAlertView.show(error: error)
+                    return
+                }
+            }
+            NotificationCenter.default.post(name: .reloadView, object: nil)
+            self?.popView()
             alert.dismiss()
         }
         action2.title = "确定"

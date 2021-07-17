@@ -14,6 +14,8 @@ class HandleMyTeamListCell: UITableViewCell {
     
     let disposeBag = DisposeBag()
     
+    var viewModel: HandleMyTeamListCellVM!
+    
     let selectImage: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(named: "unselected_img")
@@ -64,5 +66,9 @@ class HandleMyTeamListCell: UITableViewCell {
             make.height.equalTo(20)
             make.centerY.equalToSuperview()
         }
+    }
+    
+    func bindViewModel(viewModel: HandleMyTeamListCellVM) {
+        self.reasonLabel.text = viewModel.user.name
     }
 }

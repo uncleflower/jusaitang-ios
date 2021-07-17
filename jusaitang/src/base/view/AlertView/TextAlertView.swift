@@ -20,7 +20,7 @@ class TextAlertView: UIView {
     
     let describtionView: TextViewWithPh = {
         let view = TextViewWithPh()
-        view.placeholder = "请输入队伍描述..."
+        view.placeholder = "请输入描述..."
         view.placeholderColor = UIColor(hexString: "#C0C0C0")
         view.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10)
         view.backgroundColor = .white
@@ -52,6 +52,7 @@ class TextAlertView: UIView {
         self.title = title
         
         super.init(frame: CGRect(x: 0, y: 0, width: App.screenWidth, height: App.screenHeight))
+        describtionView.delegate = self
         loadView()
     }
     
@@ -204,5 +205,22 @@ class TextAlertView: UIView {
     
     @objc func hideKeyboard() {
         self.endEditing(true)
+    }
+}
+
+extension TextAlertView: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        let limit = 200
+        guard let text = describtionView.text else{
+            DataManager.shared.textAlertViewText = text
+            return true
+        }
+        
+        if text.count > limit{
+            describtionView.text = String(text[..<text.index(text.startIndex, offsetBy: 200)])
+        }
+
+        return true
     }
 }

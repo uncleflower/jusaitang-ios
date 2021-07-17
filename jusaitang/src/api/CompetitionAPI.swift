@@ -295,4 +295,33 @@ class CompetitionAPI: NSObject {
         )
         request.post(completion)
     }
+    
+    //MARK: 组队赛报名
+    
+//    class Competition {
+//        var competitionId: Int = 0
+//
+//        init(competitionId: Int) {
+//            self.competitionId = competitionId
+//        }
+//    }
+    
+    class TeamUpReq: HandyJSON {
+        var teamName: String = ""
+        var competition: Competition = Competition()
+        var teamContent: String = ""
+        
+        required init() {
+            
+        }
+    }
+    
+    static func TeamUp(request: TeamUpReq, completion: @escaping(EmptyRes?,IError?) -> Void){
+        let request = APIRequest<EmptyRes>(
+            path: "/team/addTeam",
+            request: request
+        )
+        request.post(completion)
+    }
+    
 }

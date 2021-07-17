@@ -14,6 +14,9 @@ class HandleMyTeamListView: UIView {
     
     var tableView: UITableView!
     
+    var viewModel: HandleMyTeamViewModel!
+    private let disposeBag = DisposeBag()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -39,6 +42,14 @@ class HandleMyTeamListView: UIView {
             make.edges.equalToSuperview()
         }
     }
+    
+    func bindViewModel(viewModel: HandleMyTeamViewModel) {
+        self.viewModel = viewModel
+        
+        viewModel.handleMyTeamListCellVMs.subscribe {[weak self] vms in
+            self?.tableView.reloadData()
+        }.disposed(by: disposeBag)
+    }
 }
 
 extension HandleMyTeamListView: UITableViewDelegate {
@@ -52,19 +63,24 @@ extension HandleMyTeamListView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! HandleMyTeamListCell
+        // TODO: 踢人
         cell.selectImage.isHighlighted = !cell.selectImage.isHighlighted
     }
 }
 
 extension HandleMyTeamListView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        if let count = try? viewModel.handleMyTeamListCellVMs.value().count {
+            return count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HandleMyTeamListCell", for: indexPath) as! HandleMyTeamListCell
-        
-        cell.reasonLabel.text = "测试用户\(indexPath.row + 1)"
+        if let viewModel = try? viewModel.handleMyTeamListCellVMs.value()[indexPath.row] {
+            cell.bindViewModel(viewModel: viewModel)
+        }
         cell.selectionStyle = .none
         return cell
     }

@@ -9,6 +9,8 @@ import UIKit
 
 class MyTeamCell: UITableViewCell {
     
+    var viewModel: MyTeamCellViewModel!
+    
     let containerView: UIView = {
         let view = UIView()
         view.cornerRadius = 12
@@ -75,6 +77,12 @@ class MyTeamCell: UITableViewCell {
         
         self.backgroundColor = UIColor(hexString: "#F7F7FB")
         
+        adminButton.addAction {
+            let vc = HandleMyTeamVC(teamID: self.viewModel.model.teamId)
+            vc.hidesBottomBarWhenPushed = true
+            App.navigationController?.pushViewController(vc, animated: true)
+        }
+        
         makeBasecConstraints()
     }
     
@@ -122,6 +130,17 @@ class MyTeamCell: UITableViewCell {
             make.trailing.equalToSuperview().offset(-16)
             make.height.equalTo(42)
         }
+    }
+    
+    func bindViewModel(viewModel: MyTeamCellViewModel) {
+        self.viewModel = viewModel
+        let model = viewModel.model
+        reloadData(team: "队伍：\(model.captain.userName)的队伍",
+                   competition: "参加比赛：\(model.competition.name)",
+                   peopel: "人员：限额\(model.competition.peopelSum)人，\(model.teamHeadCount)人已报名",
+                   position: "身份：\(model.isMine ? "队长" : "队员")",
+                   showAdminButton: model.isMine
+        )
     }
     
     func reloadData(team: String, competition: String, peopel: String, position: String, showAdminButton: Bool) {

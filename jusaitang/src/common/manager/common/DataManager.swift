@@ -39,6 +39,8 @@ class DataManager: NSObject {
         return self.user != nil
     }
     
+    var textAlertViewText: String = ""
+    
     override init() {
         super.init()
     }

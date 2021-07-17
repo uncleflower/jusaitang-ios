@@ -23,6 +23,7 @@ class Competition: HandyJSON {
     var time: String = ""
     var place: String = ""
     var level: CompetitionLevel = .unknown
+    var peopelSum: Int = 0
     var imageURL: String = ""
     
     func mapping(mapper: HelpingMapper) {
@@ -38,6 +39,8 @@ class Competition: HandyJSON {
             self.level <-- "competitionLevel"
         mapper <<<
             self.imageURL <-- "competitionPicUrl"
+        mapper <<<
+            self.peopelSum <-- "competitionPeopleSum"
     }
     
     required init() {

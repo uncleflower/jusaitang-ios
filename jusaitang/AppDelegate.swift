@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return true
         }
         self.window?.rootViewController = UINavigationController.init(rootViewController: LoginWithPswVC())
-//        self.window?.rootViewController = UINavigationController.init(rootViewController: TabBarViewController())
+//        self.window?.rootViewController = UINavigationController.init(rootViewController: HandleMyTeamVC())
                 
         WXApi.registerApp(wechatID, universalLink: "https://www.tracys.cn/")
         WXApi.startLog(by: .normal, logDelegate: self)
@@ -39,17 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate: WXApiDelegate, WXApiLogDelegate {
-//    func onResp(_ resp: BaseResp) {
-//        //TODO 微信支付
-////        print("WX: \(#function), resp = \(resp)")
-//        if let authResp = resp as? SendAuthResp {
-//            if authResp.errCode == WXSuccess.rawValue {
-//                let code = authResp.code
-//                NotificationCenter.default.post(name: .wxDidLogedeIn, object: code)
-//            }
-//        }
-//    }
-//
+    
     func onLog(_ log: String, logLevel level: WXLogLevel) {
         print("WX: onLog = \(log)")
     }

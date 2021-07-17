@@ -12,6 +12,8 @@ import RxCocoa
 
 class HandleMyTeamHeaderView: UIView {
     
+    private let disposeBag = DisposeBag()
+    
     let containerView: UIView = {
         let view = UIView()
         view.cornerRadius = 12
@@ -34,7 +36,7 @@ class HandleMyTeamHeaderView: UIView {
         view.font = UIFont.pf_medium(14)
         view.numberOfLines = 1
         view.textColor = UIColor(hexString: "#333333")
-        view.text = "小明的队伍"
+        view.text = "XXX的队伍"
         return view
     }()
     
@@ -48,11 +50,10 @@ class HandleMyTeamHeaderView: UIView {
         let view = UILabel()
         view.font = UIFont.pf_regular(12)
         view.numberOfLines = 0
-        view.text = "参加比赛：天梯赛"
+        view.text = "参加比赛：XXXXX"
         view.textColor = UIColor(hexString: "#333333")
         return view
     }()
-
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -67,6 +68,14 @@ class HandleMyTeamHeaderView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func bindViewModel(viewModel: HandleMyTeamViewModel) {
+        let username = DataManager.shared.user?.name
+        nikenameLabel.text = "\(username ?? "")的队伍"
+        viewModel.competitionName.subscribe {[weak self] competitionName in
+            self?.contentLabel.text = "参加比赛：" + competitionName
+        }.disposed(by: disposeBag)
     }
     
     func makeConstraints() {
@@ -100,4 +109,6 @@ class HandleMyTeamHeaderView: UIView {
             make.bottom.equalToSuperview().offset(-15)
         }
     }
+    
+    
 }
