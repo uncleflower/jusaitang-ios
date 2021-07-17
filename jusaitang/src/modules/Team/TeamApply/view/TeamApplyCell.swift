@@ -9,6 +9,8 @@ import UIKit
 
 class TeamApplyCell: UITableViewCell {
     
+    var viewModel: TeamApplyCellViewModel!
+    
     let containerView: UIView = {
         let view = UIView()
         view.cornerRadius = 12
@@ -132,6 +134,17 @@ class TeamApplyCell: UITableViewCell {
             make.height.equalTo(42)
         }
         
+    }
+    
+    func bindViewModel(viewModel: TeamApplyCellViewModel) {
+        self.viewModel = viewModel
+        let model = viewModel.model
+        reloadData(
+            nikename: model.user.name,
+            time: Date().updateTimeToCurrennTime(timeStamp: Double(model.creatAt)),
+            textContent: model.applyContent,
+            status: TeamApplyButtonsView.ApplyStatus(rawValue: model.applyState) ?? .unknown
+        )
     }
     
     func reloadData(nikename: String, time: String, textContent: String, status: TeamApplyButtonsView.ApplyStatus) {

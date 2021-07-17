@@ -17,13 +17,26 @@ enum OrganizeTeamStatus: Int {
 class OrganizeTeamModel: HandyJSON {
     var id: String = ""
     var avatar: String = ""
-    var leader: String = ""
-    var competitionName: String = ""
+    var captain: User = User()
+    var competition: Competition = Competition()
     var teamDescribe: String = ""
+    var teamHeadCount: Int = 0
     var createAt: String = ""
     var deadline: String = ""
-    var status: OrganizeTeamStatus = .unknown
+    var applied: Bool = false
+//    var status: OrganizeTeamStatus = .unknown
         
     required init() {
+    }
+    
+    func mapping(mapper: HelpingMapper) {
+        mapper <<<
+            self.id <-- "teamId"
+        mapper <<<
+            self.teamDescribe <-- "teamContent"
+        mapper <<<
+            self.createAt <-- "applyTime"
+        mapper <<<
+            self.teamHeadCount <-- "teamHeadcount"
     }
 }

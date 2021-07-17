@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		20B497B92BB8BD2E43017F62 /* Pods_jusaitang_jusaitangUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0417A2C59FD6A650F65385 /* Pods_jusaitang_jusaitangUITests.framework */; };
+		2B55548526A2E6C400BDDAA7 /* TeamApplyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B55548426A2E6C400BDDAA7 /* TeamApplyViewModel.swift */; };
+		2B55548826A2E78C00BDDAA7 /* TeamApplyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B55548726A2E78C00BDDAA7 /* TeamApplyModel.swift */; };
 		4015E81525FB18BC0054206C /* ConfigCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4015E81425FB18BC0054206C /* ConfigCenter.swift */; };
 		40163E5925EE096C005ABBBC /* LoginWithPswVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40163E5825EE096C005ABBBC /* LoginWithPswVM.swift */; };
 		40163E6125EE10C7005ABBBC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40163E6025EE10C7005ABBBC /* User.swift */; };
@@ -229,6 +231,8 @@
 /* Begin PBXFileReference section */
 		1404B00C887F885C24256845 /* Pods-jusaitang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jusaitang.debug.xcconfig"; path = "Target Support Files/Pods-jusaitang/Pods-jusaitang.debug.xcconfig"; sourceTree = "<group>"; };
 		194005AE20A4220592DD449B /* Pods_jusaitang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jusaitang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B55548426A2E6C400BDDAA7 /* TeamApplyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamApplyViewModel.swift; sourceTree = "<group>"; };
+		2B55548726A2E78C00BDDAA7 /* TeamApplyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamApplyModel.swift; sourceTree = "<group>"; };
 		4015E7F825FB102C0054206C /* jusaitang-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "jusaitang-Bridging-Header.h"; sourceTree = "<group>"; };
 		4015E81425FB18BC0054206C /* ConfigCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigCenter.swift; sourceTree = "<group>"; };
 		40163E5825EE096C005ABBBC /* LoginWithPswVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithPswVM.swift; sourceTree = "<group>"; };
@@ -471,6 +475,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B55548026A2E69700BDDAA7 /* viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				2B55548426A2E6C400BDDAA7 /* TeamApplyViewModel.swift */,
+			);
+			path = viewmodel;
+			sourceTree = "<group>";
+		};
+		2B55548626A2E76C00BDDAA7 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				2B55548726A2E78C00BDDAA7 /* TeamApplyModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		40163E5325EE0906005ABBBC /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -655,16 +675,8 @@
 				40163E9625EE22D7005ABBBC /* controller */,
 				40163E9525EE22D1005ABBBC /* viewmodel */,
 				40163E9425EE22CC005ABBBC /* view */,
-				40163E9325EE22C8005ABBBC /* model */,
 			);
 			path = UserCenter;
-			sourceTree = "<group>";
-		};
-		40163E9325EE22C8005ABBBC /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
 			sourceTree = "<group>";
 		};
 		40163E9425EE22CC005ABBBC /* view */ = {
@@ -1398,9 +1410,9 @@
 			isa = PBXGroup;
 			children = (
 				4036950525F221C400320FC1 /* controller */,
-				4036950625F221C400320FC1 /* viewmodel */,
+				2B55548026A2E69700BDDAA7 /* viewmodel */,
 				4036950325F221C400320FC1 /* view */,
-				4036950425F221C400320FC1 /* model */,
+				2B55548626A2E76C00BDDAA7 /* model */,
 			);
 			path = TeamApply;
 			sourceTree = "<group>";
@@ -1446,26 +1458,12 @@
 			path = view;
 			sourceTree = "<group>";
 		};
-		4036950425F221C400320FC1 /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
 		4036950525F221C400320FC1 /* controller */ = {
 			isa = PBXGroup;
 			children = (
 				4036950C25F2224600320FC1 /* TeamApplyViewController.swift */,
 			);
 			path = controller;
-			sourceTree = "<group>";
-		};
-		4036950625F221C400320FC1 /* viewmodel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = viewmodel;
 			sourceTree = "<group>";
 		};
 		4064E35225F7AD5200039948 /* Competitions */ = {
@@ -1923,6 +1921,7 @@
 				402C43D425D381DE004E7951 /* MapView.swift in Sources */,
 				40C3E81025F8E09600E80097 /* AnnouncementListVM.swift in Sources */,
 				402C445E25D381F6004E7951 /* PagingViewController.swift in Sources */,
+				2B55548826A2E78C00BDDAA7 /* TeamApplyModel.swift in Sources */,
 				4036945725F0C89500320FC1 /* Competition.swift in Sources */,
 				403694C125F11F8400320FC1 /* AboutUsVC.swift in Sources */,
 				4036945C25F10B9100320FC1 /* MyHeadSelectionView.swift in Sources */,
@@ -2078,6 +2077,7 @@
 				402C448D25D381F6004E7951 /* CollectionView.swift in Sources */,
 				402C445F25D381F6004E7951 /* PagingTitleCell.swift in Sources */,
 				402C447425D381F6004E7951 /* PagingMenuTransition.swift in Sources */,
+				2B55548526A2E6C400BDDAA7 /* TeamApplyViewModel.swift in Sources */,
 				40769A3D26343598003FAE8E /* HandleMyTeamHeaderView.swift in Sources */,
 				402C446725D381F6004E7951 /* PagingStaticDataSource.swift in Sources */,
 				402C448725D381F6004E7951 /* PagingIndexItem.swift in Sources */,

@@ -10,7 +10,7 @@ import HandyJSON
 
 class MyTeamModel: HandyJSON {
     var teamId: String = ""
-    var captain: Captain = Captain()
+    var captain: User = User()
     var competition: Competition = Competition()
     var teamHeadCount: Int = 0;
     var isMine: Bool = false

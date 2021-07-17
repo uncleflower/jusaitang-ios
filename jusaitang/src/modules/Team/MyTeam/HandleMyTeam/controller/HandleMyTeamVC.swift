@@ -191,9 +191,8 @@ class HandleMyTeamVC: BaseViewController {
                     ErrorAlertView.show(error: error)
                     return
                 }
+                self?.popView()
             }
-            NotificationCenter.default.post(name: .reloadView, object: nil)
-            self?.popView()
             alert.dismiss()
         }
         action2.title = "确定"

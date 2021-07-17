@@ -8,18 +8,6 @@
 import UIKit
 import HandyJSON
 
-class Captain: HandyJSON {
-    var uid: String = ""
-    var userName: String = ""
-    
-    func mapping(mapper: HelpingMapper) {
-        mapper <<<
-            self.uid <-- "userId"
-    }
-    
-    required init() {}
-}
-
 class User: HandyJSON {
     var uid: String = ""
     var avatar: String = ""

@@ -213,7 +213,6 @@ extension TextAlertView: UITextViewDelegate {
         
         let limit = 200
         guard let text = describtionView.text else{
-            DataManager.shared.textAlertViewText = text
             return true
         }
         
@@ -222,5 +221,9 @@ extension TextAlertView: UITextViewDelegate {
         }
 
         return true
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        DataManager.shared.textAlertViewText = textView.text
     }
 }

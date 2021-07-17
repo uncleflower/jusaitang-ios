@@ -9,8 +9,61 @@ import UIKit
 import HandyJSON
 
 class TeamAPI: NSObject {
-    //MARK: 我的队伍
     
+    //MARK: 申请加入队伍
+    class Team: HandyJSON {
+        var teamId: String = ""
+        
+        required init() {}
+    }
+    
+    class JoinApplyReq: HandyJSON {
+        var team: Team = Team()
+        var applyContent: String = ""
+        
+        required init() {}
+    }
+    
+    static func joinApply(request: JoinApplyReq, completion: @escaping(EmptyRes?,IError?) -> Void){
+        let request = APIRequest<EmptyRes>(
+            path: "/apply/joinApply",
+            request: request
+        )
+        request.post(completion)
+    }
+    
+    //TODO:
+    //MARK: 取消申请
+    class CancelApplyReq: HandyJSON {
+        var teamId: String = ""
+        
+        required init() {}
+    }
+    
+    static func cancelApply(request: CancelApplyReq, completion: @escaping(EmptyRes?,IError?) -> Void){
+        let request = APIRequest<EmptyRes>(
+            path: "/apply/cancelApply",
+            request: request
+        )
+        request.post(completion)
+    }
+    
+    //MARK: 组队大厅
+    class FindAllTeamRes: HandyJSON {
+        var teams: [OrganizeTeamModel] = []
+        
+        required init() {}
+    }
+    
+    static func findAllTeam(request: EmptyReq, completion: @escaping(FindAllTeamRes?,IError?) -> Void){
+        let request = APIRequest<FindAllTeamRes>(
+            path: "/team/findAllTeam",
+            request: request
+        )
+        request.post(completion)
+    }
+    
+    //MARK: 我的队伍
     class MyTeamRes: HandyJSON {
         var teams: [MyTeamModel] = []
         
@@ -55,6 +108,21 @@ class TeamAPI: NSObject {
     static func deleteTeam(request: DeleteTeamReq, completion: @escaping(EmptyRes?,IError?) -> Void){
         let request = APIRequest<EmptyRes>(
             path: "/team/deleteTeam",
+            request: request
+        )
+        request.post(completion)
+    }
+    
+    //MARK: 申请列表
+    class GetApplyListRes: HandyJSON {
+        var applies: [TeamApplyModel] = []
+        
+        required init() {}
+    }
+    
+    static func getApplyList(request: EmptyReq, completion: @escaping(GetApplyListRes?,IError?) -> Void){
+        let request = APIRequest<GetApplyListRes>(
+            path: "/apply/getApplyList",
             request: request
         )
         request.post(completion)

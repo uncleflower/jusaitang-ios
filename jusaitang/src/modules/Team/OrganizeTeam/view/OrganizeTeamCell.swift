@@ -9,6 +9,8 @@ import UIKit
 
 class OrganizeTeamCell: UITableViewCell {
     
+    var viewModel: OrganizeTeamCellVM!
+    
     let containerView: UIView = {
         let view = UIView()
         view.cornerRadius = 12
@@ -170,13 +172,40 @@ class OrganizeTeamCell: UITableViewCell {
         
     }
     
-    func reloadData(nikename: String, time: String, remainTime: String, title: String, content: String, maxCount: Int, curCount: Int) {
+    func bindViewModel(viewModel: OrganizeTeamCellVM) {
+        self.viewModel = viewModel
+        let model = viewModel.model
+        reloadData(
+            teamID: model.id,
+            nikename: model.captain.name,
+            time: Date().updateTimeToCurrennTime(timeStamp: Double(model.createAt)!),
+            remainTime: "剩余5天",
+            title: model.competition.name,
+            content: model.teamDescribe,
+            maxCount: model.competition.peopelSum,
+            curCount: model.teamHeadCount,
+            isEnroll: model.applied
+        )
+    }
+    
+    func reloadData(
+        teamID: String,
+        nikename: String,
+        time: String,
+        remainTime: String,
+        title: String,
+        content: String,
+        maxCount: Int,
+        curCount: Int,
+        isEnroll: Bool
+    )
+    {
         self.nikenameLabel.text = nikename
         self.timeLabel.text = time
         self.remainTimeLabel.text = remainTime
         self.titleLabel.text = title
         self.textContetn.text = content
         
-        self.enrollStatView.reload(maxEnrollCount: maxCount, curEnrollCount: curCount, isFull: false, isEnroll: false, status: 1, enrollID: "123")
+        self.enrollStatView.reload(teamID: teamID, maxEnrollCount: maxCount, curEnrollCount: curCount, isFull: false, isEnroll: isEnroll, status: 1, enrollID: "123")
     }
 }

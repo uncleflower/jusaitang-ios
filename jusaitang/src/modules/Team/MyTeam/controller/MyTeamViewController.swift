@@ -44,8 +44,11 @@ class MyTeamViewController: BaseViewController {
         
         
         tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(headerRefresh))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.headerRefresh()
-        NotificationCenter.default.addObserver(self, selector: #selector(headerRefresh), name: .reloadView, object: nil)
     }
     
     @objc func headerRefresh() {
@@ -54,9 +57,14 @@ class MyTeamViewController: BaseViewController {
                 ErrorAlertView.show(error: error)
                 return
             }
-            self?.tableView.reloadData()
             (self?.tableView.mj_header as? MJRefreshNormalHeader)?.endRefreshing()
         }
+    }
+    
+    override func bindViewModel() {
+        self.viewModel.myTeamCellVMs.subscribe { [weak self] vms in
+            self?.tableView.reloadData()
+        }.disposed(by: disposeBag)
     }
 }
 

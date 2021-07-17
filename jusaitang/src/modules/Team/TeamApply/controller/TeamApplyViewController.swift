@@ -15,12 +15,12 @@ class TeamApplyViewController: BaseViewController {
     
     var tableView: UITableView!
     
+    var viewModel: TeamApplyViewModel = TeamApplyViewModel()
+    
     private let disposeBag = DisposeBag()
     
     var listViewDidScrollCallback: ((UIScrollView) -> ())?
-    
-    var cell: TeamApplyCell?
-    
+        
     override func loadView() {
         super.loadView() 
         tableView = BaseTableView.init(frame: self.view.frame,style: .plain)
@@ -33,22 +33,29 @@ class TeamApplyViewController: BaseViewController {
         view.addSubview(tableView)
     }
     
-    override func makeConstraints() {
-        super.makeConstraints()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(headerRefresh))
         self.navigationView.removeFromSuperview()
+        headerRefresh()
     }
     
     @objc func headerRefresh() {
-        cell!.reloadData(nikename: "张杰豪", time: "1天前", textContent: "申请加入“数学建模大赛”队伍", status: .agreed)
-        (tableView.mj_header as? MJRefreshNormalHeader)?.endRefreshing()
+        self.viewModel.getApplyList { [weak self] error in
+            if let error = error {
+                ErrorAlertView.show(error: error)
+                return
+            }
+            (self?.tableView.mj_header as? MJRefreshNormalHeader)?.endRefreshing()
+        }
     }
     
+    override func bindViewModel() {
+        viewModel.teamApplyCellViewModels.subscribe { [weak self] vms in
+            self?.tableView.reloadData()
+        }.disposed(by: disposeBag)
+    }
 }
 
 extension TeamApplyViewController: UITableViewDelegate {
@@ -63,27 +70,22 @@ extension TeamApplyViewController: UITableViewDelegate {
 
 extension TeamApplyViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        if let count = try? viewModel.teamApplyCellViewModels.value().count {
+            return count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        cell = tableView.dequeueReusableCell(withIdentifier: "TeamApplyCell", for: indexPath) as? TeamApplyCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TeamApplyCell", for: indexPath) as! TeamApplyCell
         
-        if indexPath.row == 0 {
-            cell!.reloadData(nikename: "龚燃", time: "1天前", textContent: "申请加入你的“数学建模竞赛”队伍", status: .othersApply)
-        } else if indexPath.row == 1 {
-            cell!.reloadData(nikename: "于杰丞", time: "2天前", textContent: "申请加入你的“数学建模竞赛”队伍", status: .othersApply)
-        } else if indexPath.row == 2 {
-            cell!.reloadData(nikename: "龚燃", time: "3天前", textContent: "申请加入“天梯赛”队伍", status: .agreed)
-        } else if indexPath.row == 3 {
-            cell!.reloadData(nikename: "李四", time: "5天前", textContent: "申请加入“互联网+竞赛”队伍", status: .refused)
-        } else if indexPath.row == 4 {
-            cell!.reloadData(nikename: "王五", time: "10天前", textContent: "申请加入“数学建模竞赛”队伍", status: .underReview)
+        if let viewModel = try? viewModel.teamApplyCellViewModels.value()[indexPath.row] {
+            cell.bindViewModel(viewModel: viewModel)
         }
         
-        cell!.selectionStyle = .none
-        cell!.backgroundColor = UIColor.backgroundColor
-        return cell!
+        cell.selectionStyle = .none
+        cell.backgroundColor = UIColor.backgroundColor
+        return cell
     }
 }
 

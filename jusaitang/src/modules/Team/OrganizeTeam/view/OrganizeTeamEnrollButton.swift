@@ -18,6 +18,8 @@ class OrganizeTeamEnrollButton: UIView {
         case close = 2
     }
     
+    var teamID: String = ""
+    
     var maxEnrollCount: Int = 0
     
     var curEnrollCount: Int = 0
@@ -84,7 +86,8 @@ class OrganizeTeamEnrollButton: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func reload(maxEnrollCount: Int, curEnrollCount: Int, isFull: Bool, isEnroll: Bool, status: Int, enrollID: String) {
+    func reload(teamID: String,maxEnrollCount: Int, curEnrollCount: Int, isFull: Bool, isEnroll: Bool, status: Int, enrollID: String) {
+        self.teamID = teamID
         self.maxEnrollCount = maxEnrollCount
         self.curEnrollCount = curEnrollCount
         self.isEnroll = isEnroll
@@ -92,7 +95,7 @@ class OrganizeTeamEnrollButton: UIView {
         self.status = OrganizeTeamEnrollButton.Status(rawValue: status)!
         self.enrollID = enrollID
         
-        monitorApplicantsLabel.text = "\(curEnrollCount)人已报名，限额\(maxEnrollCount)人"
+        monitorApplicantsLabel.text = "\(curEnrollCount)人已报名，限制\(maxEnrollCount)人"
         
         checkStatus()
     }
@@ -164,7 +167,7 @@ class OrganizeTeamEnrollButton: UIView {
             make.width.equalTo(84)
         }
         enrollButton.isEnabled = true
-        monitorApplicantsLabel.text = "\(curEnrollCount)人已报名，限额\(maxEnrollCount)人"
+        monitorApplicantsLabel.text = "\(curEnrollCount)人已报名，限制\(maxEnrollCount)人"
         revokeButon.isHidden = true
         revokeButon.isEnabled = false
         monitorApplicantsLabel.isHidden = false
@@ -172,16 +175,25 @@ class OrganizeTeamEnrollButton: UIView {
     }
     
     @objc func enroll() {
-        let alert = AlertView.init(title: "是否报名", subTitle: "是否确定报名，如果出现时间问题请自行与发布者协商哦")
+        let alert = TextAlertView.init(title: "请输入您的报名申请")
         let action1 = AlertAction(type: .none) {
             alert.dismiss()
         }
         action1.title = "取消"
         let action2 = AlertAction(type: .none) { [weak self] in
-            
-            NotificationCenter.default.post(name: .reloadView, object: nil)
-            self?.changeStatusToEnrolled()
-            
+            let req = TeamAPI.JoinApplyReq()
+            let team = TeamAPI.Team()
+            team.teamId = self!.teamID
+            req.team = team
+            req.applyContent = DataManager.shared.textAlertViewText
+            TeamAPI.joinApply(request: req) { _, error in
+                if let error = error {
+                    ErrorAlertView.show(error: error)
+                    return
+                }
+                NotificationCenter.default.post(name: .reloadView, object: nil)
+                self?.changeStatusToEnrolled()
+            }
             alert.dismiss()
         }
         action2.title = "确认报名"
@@ -197,11 +209,16 @@ class OrganizeTeamEnrollButton: UIView {
         }
         action1.title = "返回"
         let action2 = AlertAction(type: .none) { [weak self] in
-            NotificationCenter.default.post(name: .reloadView, object: nil)
-            self?.curEnrollCount = 1
-            
-            self?.changeStatusToUnEnroll()
-            
+            let req = TeamAPI.CancelApplyReq()
+            req.teamId = self!.teamID
+            TeamAPI.cancelApply(request: req) { _ , error in
+                if let error = error {
+                    ErrorAlertView.show(error: error)
+                    return
+                }
+                NotificationCenter.default.post(name: .reloadView, object: nil)
+                self?.changeStatusToUnEnroll()
+            }
             alert.dismiss()
         }
         action2.title = "确认取消"

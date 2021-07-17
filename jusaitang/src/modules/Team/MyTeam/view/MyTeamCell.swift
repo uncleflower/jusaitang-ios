@@ -39,7 +39,7 @@ class MyTeamCell: UITableViewCell {
     var peopelLabel: UILabel = {
         let view = UILabel()
         view.font = UIFont.pf_regular(14)
-        view.text = "人员：限额3人，2人已报名"
+        view.text = "人员：限制3人，2人已报名"
         view.numberOfLines = 0
         view.textColor = UIColor(hexString: "#666666")
         return view
@@ -135,9 +135,9 @@ class MyTeamCell: UITableViewCell {
     func bindViewModel(viewModel: MyTeamCellViewModel) {
         self.viewModel = viewModel
         let model = viewModel.model
-        reloadData(team: "队伍：\(model.captain.userName)的队伍",
+        reloadData(team: "队伍：\(model.captain.name)的队伍",
                    competition: "参加比赛：\(model.competition.name)",
-                   peopel: "人员：限额\(model.competition.peopelSum)人，\(model.teamHeadCount)人已报名",
+                   peopel: "人员：限制\(model.competition.peopelSum)人，\(model.teamHeadCount)人已报名",
                    position: "身份：\(model.isMine ? "队长" : "队员")",
                    showAdminButton: model.isMine
         )
