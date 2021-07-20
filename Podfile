@@ -19,6 +19,7 @@ target 'jusaitang' do
   pod 'CHIPageControl/Aji'
   pod 'JXSegmentedView'
   pod 'WechatOpenSDK'
+  pod 'LookinServer', :configurations => ['Debug']
 
 
   target 'jusaitangTests' do

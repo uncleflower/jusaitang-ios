@@ -186,6 +186,12 @@ class OrganizeTeamEnrollButton: UIView {
             team.teamId = self!.teamID
             req.team = team
             req.applyContent = DataManager.shared.textAlertViewText
+            guard !req.applyContent.isEmpty else {
+                SlightAlert.init(title: "请输入你申请入队的理由").show()
+                return
+            }
+            DataManager.shared.textAlertViewText = ""
+
             TeamAPI.joinApply(request: req) { _, error in
                 if let error = error {
                     ErrorAlertView.show(error: error)
@@ -213,7 +219,7 @@ class OrganizeTeamEnrollButton: UIView {
             req.teamId = self!.teamID
             TeamAPI.cancelApply(request: req) { _ , error in
                 if let error = error {
-                    ErrorAlertView.show(error: error)
+                    SlightAlert(title: error.message).show()
                     return
                 }
                 NotificationCenter.default.post(name: .reloadView, object: nil)

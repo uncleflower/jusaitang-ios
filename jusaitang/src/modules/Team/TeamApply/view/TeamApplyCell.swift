@@ -150,8 +150,8 @@ class TeamApplyCell: UITableViewCell {
     func reloadData(nikename: String, time: String, textContent: String, status: TeamApplyButtonsView.ApplyStatus) {
         self.nikenameLabel.text = nikename
         self.timeLabel.text = time
-        self.textContetn.text = textContent
+        self.textContetn.text = "申请理由：\(textContent)"
         
-        self.applyButton.reloadView(status: status)
+        self.applyButton.reloadView(status: status, applyID: viewModel.model.applyID)
     }
 }

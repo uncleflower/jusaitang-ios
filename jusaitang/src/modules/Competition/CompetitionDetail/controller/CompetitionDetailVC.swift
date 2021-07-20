@@ -368,6 +368,11 @@ class CompetitionDetailVC: BaseViewController {
         alert.addAction(alertAction: action1)
         let action2 = AlertAction(type: .none) {[weak self] in
             let teamContent = DataManager.shared.textAlertViewText
+            guard !teamContent.isEmpty else {
+                SlightAlert.init(title: "请输入您队伍的描述").show()
+                return
+            }
+            DataManager.shared.textAlertViewText = ""
             self?.viewModel.teamUpDoApply(teamContent: teamContent, complete: { error in
                 if error != nil {
                     SlightAlert(title: "请勿重复报名").show()

@@ -32,7 +32,6 @@ class TeamAPI: NSObject {
         request.post(completion)
     }
     
-    //TODO:
     //MARK: 取消申请
     class CancelApplyReq: HandyJSON {
         var teamId: String = ""
@@ -123,6 +122,52 @@ class TeamAPI: NSObject {
     static func getApplyList(request: EmptyReq, completion: @escaping(GetApplyListRes?,IError?) -> Void){
         let request = APIRequest<GetApplyListRes>(
             path: "/apply/getApplyList",
+            request: request
+        )
+        request.post(completion)
+    }
+    
+    //MARK: 通过申请
+    class ApplyPassReq: HandyJSON {
+        var applyId: String = ""
+        
+        required init() {}
+    }
+    
+    static func applyPass(request: ApplyPassReq, completion: @escaping(EmptyRes?,IError?) -> Void){
+        let request = APIRequest<EmptyRes>(
+            path: "/apply/pass",
+            request: request
+        )
+        request.post(completion)
+    }
+    
+    //MARK: 拒绝申请
+    class ApplyRefuseReq: HandyJSON {
+        var applyId: String = ""
+        
+        required init() {}
+    }
+    
+    static func applyRefuse(request: ApplyRefuseReq, completion: @escaping(EmptyRes?,IError?) -> Void){
+        let request = APIRequest<EmptyRes>(
+            path: "/apply/refuse",
+            request: request
+        )
+        request.post(completion)
+    }
+    
+    //MARK: 踢出队伍
+    class DeleteTeamUserReq: HandyJSON {
+        var teamId: String = ""
+        var userId: String = ""
+        
+        required init() {}
+    }
+    
+    static func deleteTeamUser(request: DeleteTeamUserReq, completion: @escaping(EmptyRes?,IError?) -> Void){
+        let request = APIRequest<EmptyRes>(
+            path: "/team/deleteTeamUser",
             request: request
         )
         request.post(completion)

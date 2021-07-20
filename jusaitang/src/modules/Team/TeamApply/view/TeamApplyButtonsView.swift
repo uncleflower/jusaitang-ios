@@ -10,6 +10,8 @@ import SnapKit
 
 class TeamApplyButtonsView: UIView {
     
+    var applyID: String = ""
+    
     enum ApplyStatus: Int {
         case unknown = -1
         case othersApply = 0
@@ -87,7 +89,9 @@ class TeamApplyButtonsView: UIView {
         }
     }
     
-    func reloadView(status: ApplyStatus) {
+    func reloadView(status: ApplyStatus, applyID: String) {
+        self.applyID = applyID
+        
         switch status {
         case .othersApply:
             agreeButton.isHidden = false
@@ -142,12 +146,20 @@ class TeamApplyButtonsView: UIView {
         alert.addAction(alertAction: action1)
         
         let action2 = AlertAction(type: .none) {[weak self] in
-            self?.agreeButton.isHidden = true
-            self?.refuseButton.isHidden = true
-            self?.oneButton.isHidden = false
-            self?.oneButton.setTitle("已同意", for: .normal)
-            self?.oneButton.setTitleColor(.white, for: .normal)
-            self?.oneButton.backgroundColor = .default
+            let req = TeamAPI.ApplyPassReq()
+            req.applyId = self?.applyID ?? ""
+            TeamAPI.applyPass(request: req) { _, error in
+                if let error = error {
+                    ErrorAlertView.show(error: error)
+                    return
+                }
+                self?.agreeButton.isHidden = true
+                self?.refuseButton.isHidden = true
+                self?.oneButton.isHidden = false
+                self?.oneButton.setTitle("已同意", for: .normal)
+                self?.oneButton.setTitleColor(.white, for: .normal)
+                self?.oneButton.backgroundColor = .default
+            }
             
             alert.dismiss()
         }
@@ -166,12 +178,20 @@ class TeamApplyButtonsView: UIView {
         alert.addAction(alertAction: action1)
         
         let action2 = AlertAction(type: .none) {[weak self] in
-            self?.agreeButton.isHidden = true
-            self?.refuseButton.isHidden = true
-            self?.oneButton.isHidden = false
-            self?.oneButton.setTitle("已拒绝", for: .normal)
-            self?.oneButton.setTitleColor(.white, for: .normal)
-            self?.oneButton.backgroundColor = .gray
+            let req = TeamAPI.ApplyRefuseReq()
+            req.applyId = self?.applyID ?? ""
+            TeamAPI.applyRefuse(request: req) { _, error in
+                if let error = error {
+                    ErrorAlertView.show(error: error)
+                    return
+                }
+                self?.agreeButton.isHidden = true
+                self?.refuseButton.isHidden = true
+                self?.oneButton.isHidden = false
+                self?.oneButton.setTitle("已拒绝", for: .normal)
+                self?.oneButton.setTitleColor(.white, for: .normal)
+                self?.oneButton.backgroundColor = .gray
+            }
             
             alert.dismiss()
         }

@@ -21,10 +21,34 @@ class HandleMyTeamViewModel: NSObject {
     var handleMyTeamListCellVMs: BehaviorSubject<[HandleMyTeamListCellVM]> = BehaviorSubject.init(value: [])
     var teamID: String = ""
     var competitionName: BehaviorSubject<String> = BehaviorSubject.init(value: "")
+    var kickUserIDs: [String] = []
     
     init(teamID: String) {
         super.init()
         self.teamID = teamID
+    }
+    
+    func selectUser(userID: String) {
+        if kickUserIDs.contains(userID) {
+            kickUserIDs.remove(at: kickUserIDs.firstIndex(of: userID)!)
+        } else {
+            kickUserIDs.append(userID)
+        }
+    }
+    
+    func kickOut(userID: String, complete: @escaping(IError?) -> Void) {
+        let req = TeamAPI.DeleteTeamUserReq()
+        req.teamId = self.teamID
+        req.userId = userID
+        
+        TeamAPI.deleteTeamUser(request: req) { _, error in
+            if let error = error {
+                complete(error)
+                return
+            }
+            
+            complete(nil)
+        }
     }
     
     func getTeamDetail(complete: @escaping(IError?) -> Void) {

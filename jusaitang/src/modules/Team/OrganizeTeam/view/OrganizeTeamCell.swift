@@ -178,7 +178,7 @@ class OrganizeTeamCell: UITableViewCell {
         reloadData(
             teamID: model.id,
             nikename: model.captain.name,
-            time: Date().updateTimeToCurrennTime(timeStamp: Double(model.createAt)!),
+            time: Date().updateTimeToCurrennTime(timeStamp: Double(model.createAt) ?? 0),
             remainTime: "剩余5天",
             title: model.competition.name,
             content: model.teamDescribe,

@@ -15,6 +15,7 @@ class HandleMyTeamListView: UIView {
     var tableView: UITableView!
     
     var viewModel: HandleMyTeamViewModel!
+    
     private let disposeBag = DisposeBag()
     
     override init(frame: CGRect) {
@@ -63,7 +64,8 @@ extension HandleMyTeamListView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! HandleMyTeamListCell
-        // TODO: 踢人
+        guard let userID = try? self.viewModel.handleMyTeamListCellVMs.value()[indexPath.row].user.uid else { return }
+        self.viewModel.selectUser(userID: userID)
         cell.selectImage.isHighlighted = !cell.selectImage.isHighlighted
     }
 }

@@ -7,10 +7,14 @@
 
 import UIKit
 import MJRefresh
+import RxSwift
+import RxCocoa
 
 class HandleMyTeamVC: BaseViewController {
     
     var viewModel: HandleMyTeamViewModel!
+    
+    private let disposBag = DisposeBag()
     
     let dismissButon: UIButton = {
         let btn = UIButton()
@@ -137,7 +141,7 @@ class HandleMyTeamVC: BaseViewController {
             make.top.equalTo(listTitle.snp.bottom).offset(8)
             make.leading.equalToSuperview().offset(15)
             make.trailing.equalToSuperview().offset(-15)
-            make.height.equalTo(45)
+            make.height.equalTo(48)
         }
         
         submitButton.snp.makeConstraints { (make) in
@@ -154,6 +158,18 @@ class HandleMyTeamVC: BaseViewController {
         
         self.headerView.bindViewModel(viewModel: self.viewModel)
         self.reportCenterListView.bindViewModel(viewModel: self.viewModel)
+        
+        self.viewModel.handleMyTeamListCellVMs.subscribe {[weak self] event in
+            guard let vms = event.element else { return }
+            if vms.count != 0 {
+                self?.reportCenterListView.snp.updateConstraints { (make) in
+                    make.height.equalTo(48 * vms.count)
+                }
+                self?.reportCenterListView.isHidden = false
+            } else {
+                self?.reportCenterListView.isHidden = true
+            }
+        }.disposed(by: disposBag)
     }
     
     override func viewDidLoad() {
@@ -165,7 +181,7 @@ class HandleMyTeamVC: BaseViewController {
         
         disbandTeamButton.addTarget(self, action: #selector(disbandTeam), for: .touchUpInside)
         dismissButon.addTarget(self, action: #selector(popView), for: .touchUpInside)
-        submitButton.addTarget(self, action: #selector(addReport), for: .touchUpInside)
+        submitButton.addTarget(self, action: #selector(showKickOutAlert), for: .touchUpInside)
         
         viewModel.getTeamDetail { error in
             if let error = error {
@@ -201,10 +217,52 @@ class HandleMyTeamVC: BaseViewController {
         alert.show()
     }
     
-    @objc func popView() {
-        App.navigationController?.popViewController(animated: true)
+    @objc func showKickOutAlert() {
+        kickOut { [weak self] success in
+            if !success {
+                SlightAlert(title: "踢出队伍失败，请稍后重试").show()
+            } else {
+                SlightAlert(title: "踢出队伍成功").show()
+                guard let oldVMs = try? self?.viewModel.handleMyTeamListCellVMs.value() else { return }
+                var newVMs: [HandleMyTeamListCellVM] = oldVMs
+                for userID in self!.viewModel.kickUserIDs {
+                    for (index, vm) in oldVMs.enumerated() {
+                        if vm.user.uid == userID {
+                            newVMs.remove(at: index)
+                        }
+                    }
+                }
+                self?.viewModel.handleMyTeamListCellVMs.onNext(newVMs)
+                self?.viewModel.kickUserIDs = []
+            }
+            self?.reportCenterListView.tableView.reloadData()
+        }
     }
     
-    @objc func addReport() {
+    @objc func kickOut(complete: @escaping(Bool) -> Void) {
+        let group = DispatchGroup()
+        var success: Bool = true
+        for userID in viewModel.kickUserIDs {
+            group.enter()
+            viewModel.kickOut(userID: userID) { error in
+                if let error = error {
+                    success = false
+                    ErrorAlertView.show(error: error)
+                    return
+                }
+                group.leave()
+            }
+        }
+        group.notify(queue: DispatchQueue.main) {
+            if success {
+                complete(true)
+            } else {
+                complete(false)
+            }
+        }
+    }
+    
+    @objc func popView() {
+        App.navigationController?.popViewController(animated: true)
     }
 }
